@@ -1,0 +1,17 @@
+{
+  "result": "pass",
+  "rows": 500,
+  "unique_ids": 500,
+  "unique_bilingual_pairs": 500,
+  "required_columns_present": true,
+  "category_counts": {
+    "phonetic_transliteration": 378,
+    "semantic_translation": 55,
+    "hybrid_phonetic_semantic": 11,
+    "conventional_or_indirect": 56
+  },
+  "human_checked_yes": 0,
+  "source_pairs_matched": 500,
+  "manual_review_queue_rows": 50,
+  "errors": []
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Hong Kong bilingual street names",
+  "dataset_url": "https://data.gov.hk/en-data/dataset/hk-td-tis_15-road-network-v2",
+  "source_url": "https://static.data.gov.hk/td/road-network-v2/CENTERLINE.gml",
+  "schema_url": "https://static.data.gov.hk/td/road-network-v2/CENTERLINE.gfs",
+  "publisher": "Transport Department, Hong Kong SAR Government",
+  "portal": "DATA.GOV.HK",
+  "source_dataset": "Road Network (2nd Generation), Road centerline",
+  "source_file_last_modified": "2026-10-30",
+  "retrieved": "2026-11-11",
+  "sample_size": 500,
+  "seed": "3620",
+  "sample_method": "After the predeclared filters, sort unique bilingual name pairs by SHA-256('3620:' + Chinese + TAB + English) and retain the lowest 500 hashes.",
+  "filters": [
+    "Both official names non-empty and not placeholders",
+    "English contains Latin letters",
+    "Chinese contains CJK characters but no private-use characters",
+    "English length <=100 and Chinese length <=50",
+    "At least one English road-type token or Chinese road-type suffix",
+    "Duplicate bilingual pairs removed"
+  ],
+  "category_counts": {
+    "phonetic_transliteration": 378,
+    "semantic_translation": 55,
+    "hybrid_phonetic_semantic": 11,
+    "conventional_or_indirect": 56
+  },
+  "human_checked": 0,
+  "orientation": "Chinese source_text -> English target_text",
+  "notes": "The source is an official bilingual registry, not a parallel translation archive. Categories describe the observable relationship between the two official names."
+}

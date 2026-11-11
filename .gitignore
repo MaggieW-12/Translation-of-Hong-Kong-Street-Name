@@ -1,0 +1,5 @@
+.deps/
+vendor/
+__pycache__/
+*.py[cod]
+data/official_road_names.json
