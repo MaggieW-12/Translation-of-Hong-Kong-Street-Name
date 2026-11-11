@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="An interactive corpus of 500 official bilingual Hong Kong street and road names."
+    >
+    <title>Streetname Atlas | Translation of Hong Kong Street Names</title>
+    <link rel="icon" href="site/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="site/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至內容">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap nav-shell">
+        <a class="brand" href="index.html" aria-label="Streetname Atlas home">
+          <span class="brand-mark" aria-hidden="true">字</span>
+          <span class="brand-copy">
+            <strong data-en="Streetname Atlas" data-zh="香港街道譯名圖譜">Streetname Atlas</strong>
+            <small data-en="Hong Kong name studies" data-zh="香港名稱研究">Hong Kong name studies</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html" aria-current="page" data-en="Explore" data-zh="探索">Explore</a>
+          <a href="report.html" data-en="Learning report" data-zh="學習報告">Learning report</a>
+          <a href="codebook.html" data-en="Codebook" data-zh="編碼手冊">Codebook</a>
+          <a href="ai-use.html" data-en="AI use" data-zh="AI 使用聲明">AI use</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-language-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-language-choice="zh" aria-pressed="false">繁</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div>
+              <p class="eyebrow">
+                <span data-en="A bilingual name atlas" data-zh="雙語街道名稱圖譜">A bilingual name atlas</span>
+              </p>
+              <h1>
+                <span data-en="How Hong Kong streets speak" data-zh="香港街道，如何說話？">How Hong Kong streets speak</span>
+                <span class="subtitle lang-en">Sound, meaning, and memory in 500 official bilingual names</span>
+                <span class="subtitle lang-zh">五百個官方雙語名稱中的聲音、意義與記憶</span>
+              </h1>
+              <p class="hero-intro lang-en">
+                Explore how Chinese street names become English through sound, meaning,
+                mixed strategies, and inherited conventions. Search the corpus, reshape
+                every view, and compare the patterns yourself.
+              </p>
+              <p class="hero-intro lang-zh">
+                探索中文街道名稱如何透過音譯、意譯、混合策略與歷史慣例轉為英文。
+                搜尋語料、重整所有圖表，並直接比較不同模式。
+              </p>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#explorer">
+                  <span data-en="Open the explorer" data-zh="打開語料探索器">Open the explorer</span>
+                </a>
+                <a class="button button-ghost" href="report.html">
+                  <span data-en="Read the findings" data-zh="閱讀研究發現">Read the findings</span>
+                </a>
+              </div>
+            </div>
+
+            <aside class="hero-card" aria-label="Source information">
+              <div class="route-mini" aria-hidden="true">
+                <svg viewBox="0 0 420 230">
+                  <path d="M-20 52 C80 80, 72 172, 190 166 S320 58, 450 95" fill="none" stroke="#d9ba73" stroke-width="18" stroke-linecap="round"/>
+                  <path d="M-20 52 C80 80, 72 172, 190 166 S320 58, 450 95" fill="none" stroke="#fff8e8" stroke-width="3"/>
+                  <path d="M52 230 C90 160, 130 120, 175 90 S270 20, 300 -15" fill="none" stroke="#e8dfce" stroke-width="8" stroke-linecap="round" opacity=".75"/>
+                  <circle cx="188" cy="166" r="8" fill="#b94d34" stroke="#fff8e8" stroke-width="3"/>
+                  <text x="202" y="170" fill="#fff8e8" font-size="11" font-family="DM Mono, monospace">花園道</text>
+                  <text x="105" y="72" fill="#d9ba73" font-size="10" font-family="DM Mono, monospace">GARDEN ROAD</text>
+                  <text x="296" y="62" fill="#fff8e8" font-size="11" font-family="DM Mono, monospace">干諾道</text>
+                </svg>
+              </div>
+              <div class="hero-card-label">
+                <span>DATA.GOV.HK</span>
+                <span data-en="500 official pairs" data-zh="500 對官方名稱">500 official pairs</span>
+              </div>
+            </aside>
+          </div>
+
+          <div class="stats" aria-label="Dataset at a glance">
+            <div class="stat">
+              <strong>500</strong>
+              <span data-en="sampled bilingual names" data-zh="抽樣雙語名稱">sampled bilingual names</span>
+            </div>
+            <div class="stat">
+              <strong>3,319</strong>
+              <span data-en="eligible unique name pairs" data-zh="合資格唯一名稱對">eligible unique name pairs</span>
+            </div>
+            <div class="stat">
+              <strong>4</strong>
+              <span data-en="translation strategies" data-zh="翻譯策略類別">translation strategies</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="explorer">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker" data-en="Corpus explorer" data-zh="語料探索器">Corpus explorer</p>
+              <h2 data-en="Read the street, then read the pattern" data-zh="先讀街道，再讀模式">Read the street, then read the pattern</h2>
+            </div>
+            <p>
+              <span class="lang-en">Every search and filter updates the network, treemap, heatmap, and data grid together.</span>
+              <span class="lang-zh">每次搜尋與篩選都會同步更新網絡圖、矩形樹圖、熱圖及資料表。</span>
+            </p>
+          </div>
+
+          <div class="explorer" id="street-explorer">
+            <aside class="filters" aria-label="Corpus filters">
+              <div class="filter-title">
+                <h3 data-en="Find a pattern" data-zh="尋找模式">Find a pattern</h3>
+                <button class="text-button" id="reset-filters" type="button" data-en="Reset" data-zh="重設">Reset</button>
+              </div>
+
+              <div class="field">
+                <label for="corpus-search" data-en="Search names" data-zh="搜尋名稱">Search names</label>
+                <div class="search-wrap">
+                  <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="m16 16 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                  <input
+                    class="input"
+                    id="corpus-search"
+                    type="search"
+                    autocomplete="off"
+                    data-en-placeholder="Road, character, or ID"
+                    data-zh-placeholder="道路、字詞或編號"
+                    placeholder="Road, character, or ID"
+                  >
+                </div>
+              </div>
+
+              <div class="field field-categories">
+                <span class="field-label" data-en="Strategy" data-zh="翻譯策略">Strategy</span>
+                <div class="chip-group">
+                  <button class="chip" type="button" data-category-filter="all" aria-pressed="true">
+                    <span data-en="All strategies" data-zh="所有策略">All strategies</span>
+                    <span class="count" data-count>500</span>
+                  </button>
+                  <button class="chip" type="button" data-category-filter="phonetic_transliteration" aria-pressed="false">
+                    <span data-en="Phonetic" data-zh="音譯">Phonetic</span>
+                    <span class="count" data-count>378</span>
+                  </button>
+                  <button class="chip" type="button" data-category-filter="semantic_translation" aria-pressed="false">
+                    <span data-en="Semantic" data-zh="意譯">Semantic</span>
+                    <span class="count" data-count>55</span>
+                  </button>
+                  <button class="chip" type="button" data-category-filter="hybrid_phonetic_semantic" aria-pressed="false">
+                    <span data-en="Hybrid" data-zh="音意混合">Hybrid</span>
+                    <span class="count" data-count>11</span>
+                  </button>
+                  <button class="chip" type="button" data-category-filter="conventional_or_indirect" aria-pressed="false">
+                    <span data-en="Conventional" data-zh="慣用或間接">Conventional</span>
+                    <span class="count" data-count>56</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="checked-filter" data-en="Verification" data-zh="核對狀態">Verification</label>
+                <select class="select" id="checked-filter">
+                  <option value="all" data-en="All entries" data-zh="全部資料">All entries</option>
+                  <option value="yes" data-en="Checked" data-zh="已核對">Checked</option>
+                  <option value="no" data-en="Not yet checked" data-zh="尚未核對">Not yet checked</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="road-type-filter" data-en="Road type" data-zh="道路類型">Road type</label>
+                <select class="select" id="road-type-filter">
+                  <option value="all" data-en="All road types" data-zh="全部道路類型">All road types</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="score-filter" data-en="Sound similarity" data-zh="語音相似度">Sound similarity</label>
+                <select class="select" id="score-filter">
+                  <option value="all" data-en="All scores" data-zh="全部分數">All scores</option>
+                  <option value="0-.24">0-.24</option>
+                  <option value=".25-.49">.25-.49</option>
+                  <option value=".50-.74">.50-.74</option>
+                  <option value=".75-1.00">.75-1.00</option>
+                </select>
+              </div>
+
+              <p class="filter-note">
+                <span class="lang-en">The corpus uses a reproducible sample of official names. Filter state is saved in the page URL.</span>
+                <span class="lang-zh">本語料使用可重現的官方名稱抽樣；篩選狀態會保存在網址中。</span>
+              </p>
+            </aside>
+
+            <div class="results">
+              <div class="results-toolbar">
+                <p class="result-count" id="result-count" aria-live="polite"></p>
+                <p class="active-filter" id="active-filters"></p>
+              </div>
+
+              <div class="charts">
+                <article class="chart-card chart-card-wide">
+                  <div class="chart-head">
+                    <div>
+                      <h3 class="chart-title" data-en="Term network" data-zh="詞語網絡">Term network</h3>
+                      <p class="chart-caption">
+                        <span class="lang-en">Which English name elements repeatedly connect to the same Chinese characters?</span>
+                        <span class="lang-zh">哪些英文名稱成分會反覆連繫到相同的中文字？</span>
+                      </p>
+                    </div>
+                    <span class="chart-tag" data-en="Relational" data-zh="關係型">Relational</span>
+                  </div>
+                  <div class="chart-controls">
+                    <label class="control-inline" for="network-terms">
+                      <span data-en="English terms" data-zh="英文詞數">English terms</span>
+                      <input id="network-terms" type="range" min="6" max="30" value="14" step="2">
+                      <span class="control-value" id="network-terms-value">14</span>
+                    </label>
+                    <label class="control-inline" for="network-min">
+                      <span data-en="Minimum links" data-zh="最少連繫">Minimum links</span>
+                      <input id="network-min" type="range" min="1" max="5" value="1" step="1">
+                      <span class="control-value" id="network-min-value">1</span>
+                    </label>
+                  </div>
+                  <div class="viz-frame network-frame" id="network-chart"></div>
+                  <p class="sr-only" id="network-summary" aria-live="polite"></p>
+                  <div class="legend-row" aria-hidden="true">
+                    <span class="legend-item"><span class="legend-dot" style="background:#0c5c4b"></span><span data-en="English element" data-zh="英文成分">English element</span></span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#b94d34"></span><span data-en="Chinese character" data-zh="中文字">Chinese character</span></span>
+                    <span class="legend-item"><span data-en="Drag nodes or use the mouse wheel to zoom." data-zh="可拖曳節點或使用滑輪縮放。">Drag nodes or use the mouse wheel to zoom.</span></span>
+                  </div>
+                </article>
+
+                <article class="chart-card">
+                  <div class="chart-head">
+                    <div>
+                      <h3 class="chart-title" data-en="Strategy treemap" data-zh="策略矩形樹圖">Strategy treemap</h3>
+                      <p class="chart-caption">
+                        <span class="lang-en">How do the four strategies divide into different road types?</span>
+                        <span class="lang-zh">四種翻譯策略在不同道路類型中如何分布？</span>
+                      </p>
+                    </div>
+                    <span class="chart-tag" data-en="Hierarchical" data-zh="層級型">Hierarchical</span>
+                  </div>
+                  <div class="viz-frame" id="treemap-chart"></div>
+                </article>
+
+                <article class="chart-card">
+                  <div class="chart-head">
+                    <div>
+                      <h3 class="chart-title" data-en="Sound-score heatmap" data-zh="語音分數熱圖">Sound-score heatmap</h3>
+                      <p class="chart-caption">
+                        <span class="lang-en">Do the categories separate along the Cantonese-English sound-similarity scale?</span>
+                        <span class="lang-zh">各類別在粵英語音相似度上是否呈現明顯分布？</span>
+                      </p>
+                    </div>
+                    <span class="chart-tag" data-en="Distributional" data-zh="分布型">Distributional</span>
+                  </div>
+                  <div class="viz-frame" id="heatmap-chart"></div>
+                </article>
+              </div>
+
+              <section class="data-panel" id="data-grid" aria-labelledby="data-title">
+                <div class="data-toolbar">
+                  <div>
+                    <p class="section-kicker" data-en="Tabular view" data-zh="表格檢視">Tabular view</p>
+                    <h3 class="chart-title" id="data-title" data-en="Corpus data grid" data-zh="語料資料表">Corpus data grid</h3>
+                  </div>
+                  <div class="data-toolbar">
+                    <div class="field">
+                      <label for="show-rows" data-en="Rows" data-zh="列數">Rows</label>
+                      <select class="select" id="show-rows">
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="500">500</option>
+                      </select>
+                    </div>
+                    <button class="button button-ghost button-small" id="export-csv" type="button">
+                      <span data-en="Export filtered CSV" data-zh="匯出篩選 CSV">Export filtered CSV</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <caption class="sr-only">
+                      Filtered street-name corpus with sortable columns.
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col" aria-sort="ascending"><button class="sort-button" type="button" data-sort="id">ID</button></th>
+                        <th scope="col"><button class="sort-button" type="button" data-sort="targetText" data-en="Street name" data-zh="街道名稱">Street name</button></th>
+                        <th scope="col"><button class="sort-button" type="button" data-sort="category" data-en="Strategy" data-zh="策略">Strategy</button></th>
+                        <th scope="col"><button class="sort-button" type="button" data-sort="phoneticScore" data-en="Sound score" data-zh="語音分數">Sound score</button></th>
+                        <th scope="col"><button class="sort-button" type="button" data-sort="roadType" data-en="Road type" data-zh="道路類型">Road type</button></th>
+                        <th scope="col"><button class="sort-button" type="button" data-sort="humanChecked" data-en="Checked" data-zh="核對">Checked</button></th>
+                      </tr>
+                    </thead>
+                    <tbody id="corpus-rows"></tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong data-en="Streetname Atlas" data-zh="香港街道譯名圖譜">Streetname Atlas</strong>
+          <p>
+            <span class="lang-en">Built from the Transport Department's Road Network (2nd Generation) on DATA.GOV.HK. Retrieved 11 November 2026.</span>
+            <span class="lang-zh">資料源自 DATA.GOV.HK 上運輸署「第二代道路網絡」；擷取日期為 2026 年 11 月 11 日。</span>
+          </p>
+        </div>
+        <a href="data/manual_review_queue.csv" data-en="50-entry review queue (CSV)" data-zh="50 項人工核對清單（CSV）">50-entry review queue (CSV)</a>
+      </div>
+    </footer>
+
+    <script src="site/assets/d3.v7.min.js"></script>
+    <script src="site/data/street_names.js"></script>
+    <script src="site/i18n.js"></script>
+    <script src="site/app.js"></script>
+  </body>
+</html>

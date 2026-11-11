@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Codebook for the Hong Kong bilingual street-name corpus.">
+    <title>Codebook | Streetname Atlas</title>
+    <link rel="icon" href="site/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="site/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至內容">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap nav-shell">
+        <a class="brand" href="index.html" aria-label="Streetname Atlas home">
+          <span class="brand-mark" aria-hidden="true">字</span>
+          <span class="brand-copy">
+            <strong data-en="Streetname Atlas" data-zh="香港街道譯名圖譜">Streetname Atlas</strong>
+            <small data-en="Hong Kong name studies" data-zh="香港名稱研究">Hong Kong name studies</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html" data-en="Explore" data-zh="探索">Explore</a>
+          <a href="report.html" data-en="Learning report" data-zh="學習報告">Learning report</a>
+          <a href="codebook.html" aria-current="page" data-en="Codebook" data-zh="編碼手冊">Codebook</a>
+          <a href="ai-use.html" data-en="AI use" data-zh="AI 使用聲明">AI use</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-language-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-language-choice="zh" aria-pressed="false">繁</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow" data-en="Coding framework" data-zh="編碼框架">Coding framework</p>
+          <h1><span class="lang-en">Four ways a street can cross a language</span><span class="lang-zh">街道跨越語言的四種方式</span></h1>
+          <p>
+            <span class="lang-en">Definitions, evidence rules, examples, boundaries, and the revision log for the corpus categories.</span>
+            <span class="lang-zh">語料類別的定義、判斷規則、例子、邊界個案及修訂紀錄。</span>
+          </p>
+        </div>
+      </section>
+
+      <div class="wrap page-layout">
+        <aside class="page-toc" aria-label="Codebook contents">
+          <strong data-en="Contents" data-zh="目錄">Contents</strong>
+          <a href="#scope" data-en="Scope" data-zh="範圍">Scope</a>
+          <a href="#phonetic" data-en="Phonetic" data-zh="音譯">Phonetic</a>
+          <a href="#semantic" data-en="Semantic" data-zh="意譯">Semantic</a>
+          <a href="#hybrid" data-en="Hybrid" data-zh="音意混合">Hybrid</a>
+          <a href="#conventional" data-en="Conventional" data-zh="慣用或間接">Conventional</a>
+          <a href="#log" data-en="Revision log" data-zh="修訂紀錄">Revision log</a>
+        </aside>
+
+        <article class="prose">
+          <section id="scope">
+            <h2><span class="lang-en">Scope and method</span><span class="lang-zh">範圍與方法</span></h2>
+            <p class="lang-en">
+              The unit is an official bilingual street or road name recorded by the
+              Hong Kong Transport Department. The analytic direction is Traditional
+              Chinese to English, but an official pair does not prove which name came
+              first. These categories describe the observable relationship between the
+              two printed forms, not a reconstructed historical intention.
+            </p>
+            <p class="lang-zh">
+              編碼單位是香港運輸署記錄的官方雙語街道或道路名稱。分析方向是由繁體中文到英文，
+              但官方名稱對不能證明哪個名稱先出現。以下類別描述兩個刊印形式之間的可觀察關係，
+              而不是重構當時的命名意圖。
+            </p>
+            <p class="lang-en">
+              The method follows the broad distinction in Vinay and Darbelnet (1958)
+              between borrowing and calque, with supporting ideas from Newmark's (1988)
+              account of transference and literal translation. Evidence comes from two
+              reproducible signals: Cantonese Jyutping similarity and a fixed
+              English-to-Chinese semantic glossary.
+            </p>
+            <p class="lang-zh">
+              方法主要採用維內與達貝爾內（Vinay & Darbelnet, 1958）對借用與仿譯的區分，
+              並參考紐馬克（Newmark, 1988）關於轉寫及直譯的討論。判斷證據來自兩項可重現訊號：
+              粵語粵拼相似度，以及固定的英中語義詞表。
+            </p>
+          </section>
+
+          <section class="code-entry" id="phonetic">
+            <h2><span class="lang-en">1. Phonetic transliteration</span><span class="lang-zh">1. 音譯</span></h2>
+            <p class="lang-en">
+              The English name represents the sound of the Cantonese name, usually
+              syllable by syllable, rather than translating its individual meaning.
+            </p>
+            <p class="lang-zh">
+              英文名稱主要再現粵語名稱的聲音，通常逐音節轉寫，而不是翻譯個別字義。
+            </p>
+            <dl class="rule-grid">
+              <dt data-en="Theory source" data-zh="理論來源">Theory source</dt>
+              <dd>Vinay &amp; Darbelnet (1958), borrowing/transference; Newmark (1988), transcription.</dd>
+              <dt data-en="Decision rule" data-zh="判斷規則">Decision rule</dt>
+              <dd>
+                <span class="lang-en">Cleaned English has at least 0.50 character similarity with the Jyutping of the Chinese name, and no semantic glossary item matches.</span>
+                <span class="lang-zh">清理後的英文與中文名稱的粵語粵拼有至少 0.50 的字元相似度，而且未命中語義詞表。</span>
+              </dd>
+              <dt data-en="Positive example" data-zh="正例">Positive example</dt>
+              <dd class="example">汀逸路 → TING YAT ROAD (score 1.000)</dd>
+              <dt data-en="Negative example" data-zh="反例">Negative example</dt>
+              <dd class="example">油街 → OIL STREET. The meaning matches, but the sound does not.</dd>
+              <dt data-en="Boundary case" data-zh="邊界個案">Boundary case</dt>
+              <dd>
+                <span class="lang-en">A name is not phonetic merely because its English spelling looks traditional. Printed sound similarity must be measurable.</span>
+                <span class="lang-zh">英文拼寫看起來傳統，並不自動構成音譯；刊印形式的語音相似度必須可以量度。</span>
+              </dd>
+            </dl>
+          </section>
+
+          <section class="code-entry" id="semantic">
+            <h2><span class="lang-en">2. Semantic translation</span><span class="lang-zh">2. 意譯</span></h2>
+            <p class="lang-en">
+              At least one English content word translates a meaning present in the
+              Chinese name, while the whole pair does not show a strong phonetic match.
+            </p>
+            <p class="lang-zh">
+              至少一個英文實詞翻譯了中文名稱中存在的意義，而整個名稱對沒有強烈語音對應。
+            </p>
+            <dl class="rule-grid">
+              <dt data-en="Theory source" data-zh="理論來源">Theory source</dt>
+              <dd>Vinay &amp; Darbelnet (1958), literal translation/calque; Newmark (1988), literal translation.</dd>
+              <dt data-en="Decision rule" data-zh="判斷規則">Decision rule</dt>
+              <dd>
+                <span class="lang-en">A fixed gloss such as OIL → 油 or MUSEUM → 博物館 appears in the pair, and the full-name phonetic score is below 0.50.</span>
+                <span class="lang-zh">名稱對出現固定對應，如 OIL → 油 或 MUSEUM → 博物館，而且全名語音分數低於 0.50。</span>
+              </dd>
+              <dt data-en="Positive example" data-zh="正例">Positive example</dt>
+              <dd class="example">油街 → OIL STREET; 博物館道 → MUSEUM DRIVE</dd>
+              <dt data-en="Negative example" data-zh="反例">Negative example</dt>
+              <dd class="example">洪順路 → HUNG SHUN ROAD. <code>HUNG</code> and <code>SHUN</code> reproduce sound rather than translate meanings.</dd>
+              <dt data-en="Boundary case" data-zh="邊界個案">Boundary case</dt>
+              <dd>
+                <span class="lang-en">油街 → OIL STREET is semantic, not hybrid: the generic 街/STREET relation appears in every road name and does not establish a distinctive sound match.</span>
+                <span class="lang-zh">油街 → OIL STREET 屬意譯而非混合：通用 街/STREET 關係幾乎見於所有道路名稱，不能構成獨特的語音對應。</span>
+              </dd>
+            </dl>
+          </section>
+
+          <section class="code-entry" id="hybrid">
+            <h2><span class="lang-en">3. Hybrid phonetic-semantic rendering</span><span class="lang-zh">3. 音意混合</span></h2>
+            <p class="lang-en">
+              One part of the name is represented by sound and another part is translated
+              by meaning, producing a bilingual structure within the same name.
+            </p>
+            <p class="lang-zh">
+              名稱的一部分以聲音再現，另一部分以意義翻譯，在同一名稱內形成雙語結構。
+            </p>
+            <dl class="rule-grid">
+              <dt data-en="Theory source" data-zh="理論來源">Theory source</dt>
+              <dd>Vinay &amp; Darbelnet (1958), combined procedures; Newmark (1988), transference plus semantic translation.</dd>
+              <dt data-en="Decision rule" data-zh="判斷規則">Decision rule</dt>
+              <dd>
+                <span class="lang-en">The full name has a phonetic score of at least 0.50 and at least one semantic glossary item also matches.</span>
+                <span class="lang-zh">全名語音分數至少 0.50，而且同時命中至少一個語義詞表項目。</span>
+              </dd>
+              <dt data-en="Positive example" data-zh="正例">Positive example</dt>
+              <dd class="example">天后廟道 → TIN HAU TEMPLE ROAD. `TIN HAU` follows Cantonese sound; `TEMPLE` translates 廟.</dd>
+              <dt data-en="Negative example" data-zh="反例">Negative example</dt>
+              <dd class="example">教堂街 → CHURCH STREET. The pair is overwhelmingly semantic and has no strong sound match.</dd>
+              <dt data-en="Boundary case" data-zh="邊界個案">Boundary case</dt>
+              <dd>
+                <span class="lang-en">Only 11 of 500 names are hybrids. A single soundlike syllable is not enough unless the full pair passes the threshold.</span>
+                <span class="lang-zh">500 個名稱中只有 11 個屬混合類別；單一音近音節不足以構成混合，全名必須通過門檻。</span>
+              </dd>
+            </dl>
+          </section>
+
+          <section class="code-entry" id="conventional">
+            <h2><span class="lang-en">4. Conventional or indirect rendering</span><span class="lang-zh">4. 慣用或間接譯名</span></h2>
+            <p class="lang-en">
+              The pair has neither the rule-based Cantonese sound match nor the semantic
+              match recorded by the glossary. It may involve renaming, an established
+              foreign proper name, abbreviation, or an opaque official convention.
+            </p>
+            <p class="lang-zh">
+              名稱對既未通過規則化的粵語語音對應，也未命中語義詞表。它可能涉及改名、
+              既有外語專名、縮寫，或今人不易直接看出的官方慣例。
+            </p>
+            <dl class="rule-grid">
+              <dt data-en="Theory source" data-zh="理論來源">Theory source</dt>
+              <dd>Venuti (1995), historical and institutional norms; Newmark (1988), accepted translation and proper-name convention.</dd>
+              <dt data-en="Decision rule" data-zh="判斷規則">Decision rule</dt>
+              <dd>
+                <span class="lang-en">Both automated criteria fail. Assign provisionally and prioritize the row for human review.</span>
+                <span class="lang-zh">兩項自動準則均未通過。先作暫定分類，並優先安排人工審核。</span>
+              </dd>
+              <dt data-en="Positive example" data-zh="正例">Positive example</dt>
+              <dd class="example">碧翠路 → RAZOR HILL ROAD. Neither full sound nor the available meaning links is transparent.</dd>
+              <dt data-en="Negative example" data-zh="反例">Negative example</dt>
+              <dd class="example">山頂道 → PEAK ROAD. PEAK → 山頂 is captured by the semantic rule.</dd>
+              <dt data-en="Boundary case" data-zh="邊界個案">Boundary case</dt>
+              <dd>
+                <span class="lang-en">南丁格爾路 → NIGHTINGALE ROAD is a sound-based treatment of an English proper name, but falls below the Cantonese-match rule. It stays here provisionally.</span>
+                <span class="lang-zh">南丁格爾路 → NIGHTINGALE ROAD 是英語專名的音譯式處理，但未通過粵語對應準則，故暫列此類。</span>
+              </dd>
+            </dl>
+          </section>
+
+          <section id="log">
+            <h2><span class="lang-en">Revision log</span><span class="lang-zh">修訂紀錄</span></h2>
+            <ul class="lang-en">
+              <li><strong>11 Nov 2026:</strong> Established the four categories before inspecting the final 500-row sample.</li>
+              <li><strong>11 Nov 2026:</strong> Tested the rules on 30 names; lowered the phonetic threshold from 0.52 to 0.50 after transparent Cantonese matches landed exactly at 0.50.</li>
+              <li><strong>11 Nov 2026:</strong> Added common semantic glosses for colors, directions, buildings, and landscape terms before writing the final sample.</li>
+              <li><strong>11 Nov 2026:</strong> Automated checks passed for 500 unique IDs, 500 unique pairs, and all 500 source matches.</li>
+            </ul>
+            <ul class="lang-zh">
+              <li><strong>2026 年 11 月 11 日：</strong>在檢視最終 500 列樣本前確立四個類別。</li>
+              <li><strong>2026 年 11 月 11 日：</strong>以 30 個名稱測試規則；因多個明顯粵語對應剛好落在 0.50，把語音門檻由 0.52 調至 0.50。</li>
+              <li><strong>2026 年 11 月 11 日：</strong>在產出最終樣本前，加入顏色、方向、建築及地貌詞的常見語義對應。</li>
+              <li><strong>2026 年 11 月 11 日：</strong>自動檢查確認 500 個唯一編號、500 對唯一名稱，以及全部 500 對來源相符。</li>
+            </ul>
+            <div class="callout callout-jade">
+              <p class="lang-en">
+                Current limitation: definitions remain rule-assisted drafts that the
+                project owner must explain and validate. The 50-entry manual review queue
+                is prepared, but <code>human_checked=yes</code> has not yet been assigned.
+              </p>
+              <p class="lang-zh">
+                目前限制：定義仍屬規則輔助的草稿，需要項目負責人親自解釋及驗證。
+                50 項人工核對清單已準備好，但尚未標記任何 <code>human_checked=yes</code>。
+              </p>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong data-en="Streetname Atlas" data-zh="香港街道譯名圖譜">Streetname Atlas</strong>
+          <p><span class="lang-en">Coding definitions and decision rules.</span><span class="lang-zh">編碼定義與判斷規則。</span></p>
+        </div>
+        <a href="index.html#explorer" data-en="Test the rules in the explorer" data-zh="在探索器測試規則">Test the rules in the explorer</a>
+      </div>
+    </footer>
+
+    <script src="site/i18n.js"></script>
+  </body>
+</html>

@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learning report for the Hong Kong street-name translation corpus.">
+    <title>Learning Report | Streetname Atlas</title>
+    <link rel="icon" href="site/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="site/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至內容">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap nav-shell">
+        <a class="brand" href="index.html" aria-label="Streetname Atlas home">
+          <span class="brand-mark" aria-hidden="true">字</span>
+          <span class="brand-copy">
+            <strong data-en="Streetname Atlas" data-zh="香港街道譯名圖譜">Streetname Atlas</strong>
+            <small data-en="Hong Kong name studies" data-zh="香港名稱研究">Hong Kong name studies</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html" data-en="Explore" data-zh="探索">Explore</a>
+          <a href="report.html" aria-current="page" data-en="Learning report" data-zh="學習報告">Learning report</a>
+          <a href="codebook.html" data-en="Codebook" data-zh="編碼手冊">Codebook</a>
+          <a href="ai-use.html" data-en="AI use" data-zh="AI 使用聲明">AI use</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-language-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-language-choice="zh" aria-pressed="false">繁</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow" data-en="Learning report" data-zh="學習報告">Learning report</p>
+          <h1>
+            <span class="lang-en">From street signs to systems</span>
+            <span class="lang-zh">從街道招牌到名稱系統</span>
+          </h1>
+          <p>
+            <span class="lang-en">How a bilingual name registry became a small tool for asking how Hong Kong streets travel between Chinese and English.</span>
+            <span class="lang-zh">一個雙語名稱資料庫，如何成為探索香港街道名稱在中英之間轉換方式的工具。</span>
+          </p>
+        </div>
+      </section>
+
+      <div class="wrap page-layout">
+        <aside class="page-toc" aria-label="Report contents">
+          <strong data-en="Contents" data-zh="目錄">Contents</strong>
+          <a href="#origin" data-en="Origin" data-zh="緣起">Origin</a>
+          <a href="#background" data-en="Background" data-zh="背景">Background</a>
+          <a href="#gap" data-en="Gap" data-zh="研究缺口">Gap</a>
+          <a href="#questions" data-en="Questions" data-zh="研究問題">Questions</a>
+          <a href="#method" data-en="Method" data-zh="方法">Method</a>
+          <a href="#analysis" data-en="Analysis" data-zh="分析">Analysis</a>
+          <a href="#conclusion" data-en="Conclusion" data-zh="結論">Conclusion</a>
+          <a href="#reflection" data-en="Reflection" data-zh="反思">Reflection</a>
+          <a href="#references" data-en="References" data-zh="參考資料">References</a>
+        </aside>
+
+        <article class="prose">
+          <section id="origin">
+            <h2><span class="lang-en">Origin</span><span class="lang-zh">緣起</span></h2>
+            <p class="lang-en">
+              Hong Kong street signs make translation visible in everyday life. A single
+              bilingual sign may preserve a Cantonese sound, translate a landscape word,
+              mix both strategies, or retain a name whose connection to the present
+              is historical rather than transparent.
+            </p>
+            <p class="lang-zh">
+              香港的街道牌讓翻譯成為日常生活的一部分。同一塊中英雙語路牌，可能保留粵語聲音、
+              意譯地貌詞、混用兩種方式，或沿用一個今天已不那麼透明的歷史名稱。
+            </p>
+            <p class="lang-en">
+              I chose this topic because the names are public, short, and locally
+              meaningful. They also invite a question that is larger than individual
+              translation choices: what kinds of linguistic work does a city perform
+              when it keeps two naming systems visible at once?
+            </p>
+            <p class="lang-zh">
+              我選擇這個題目，因為街道名稱公開、簡短，而且與本地生活緊密相連。它們更帶出一個
+              超過單一翻譯選擇的問題：當一座城市同時展示兩套命名系統時，它實際上進行了怎樣的語言工作？
+            </p>
+          </section>
+
+          <section id="background">
+            <h2><span class="lang-en">Background</span><span class="lang-zh">背景</span></h2>
+            <p class="lang-en">
+              Hong Kong's street names reflect several layers of naming practice.
+              Some English names reconstruct Cantonese pronunciation; others translate
+              meanings such as garden, hill, temple, or market; still others preserve
+              British administrators, foreign places, abbreviations, and later renamings.
+              An officially bilingual list makes these pairings easy to collect, but it
+              does not tell the reader which strategy is operating.
+            </p>
+            <p class="lang-zh">
+              香港街道名稱包含多重命名實踐。有些英文名稱重構粵語讀音；有些意譯花園、山、
+              廟或市場等意思；另一些則保留英國官員、外國地名、縮寫或後來改名的痕跡。
+              官方雙語列表方便收集名稱對，卻不會直接告訴讀者背後使用了哪種策略。
+            </p>
+          </section>
+
+          <section id="gap">
+            <h2><span class="lang-en">Gap</span><span class="lang-zh">研究缺口</span></h2>
+            <p class="lang-en">
+              Existing road datasets are designed for navigation and asset management.
+              They answer where a road is, not how its two names relate. General
+              translation theory gives useful categories such as borrowing, calque,
+              and literal translation, but applying them to hundreds of official names
+              requires a consistent rule, source traceability, and a view that lets a
+              reader compare individual entries with the overall pattern.
+            </p>
+            <p class="lang-zh">
+              現有道路資料主要服務導航及設施管理。它們回答道路在哪裡，而不是兩個名稱如何相關。
+              一般翻譯理論提供借用、仿譯、直譯等類別，但要把這些類別應用到數百個官方名稱，
+              仍需要一致的規則、可追溯的來源，以及能讓讀者同時比較個別例子與整體模式的介面。
+            </p>
+          </section>
+
+          <section id="questions">
+            <h2><span class="lang-en">Questions</span><span class="lang-zh">研究問題</span></h2>
+            <ul class="lang-en">
+              <li>What proportion of the sample is primarily sound-based, meaning-based, mixed, or conventional?</li>
+              <li>Does the Cantonese-English sound score divide the categories as the codebook predicts?</li>
+              <li>How do these strategies combine with road types such as Road, Street, and Lane?</li>
+              <li>What can recurring English name elements reveal that a single example cannot?</li>
+            </ul>
+            <ul class="lang-zh">
+              <li>樣本中主要依聲音、意義、混合方式或慣例形成的名稱各佔多少？</li>
+              <li>粵英語音分數是否如編碼手冊預期般區分各類別？</li>
+              <li>這些策略如何與 Road、Street、Lane 等道路類型結合？</li>
+              <li>反覆出現的英文名稱成分能揭示哪些單一例子看不到的現象？</li>
+            </ul>
+          </section>
+
+          <section id="method">
+            <h2><span class="lang-en">Method</span><span class="lang-zh">方法</span></h2>
+            <h3><span class="lang-en">Source and sampling</span><span class="lang-zh">來源與抽樣</span></h3>
+            <p class="lang-en">
+              The source is the Transport Department's Road Network (2nd Generation),
+              Road centerline file on DATA.GOV.HK, retrieved on 11 November 2026.
+              I streamed the 460 MB GML file and kept only official English and Chinese
+              name fields plus object and street identifiers. The parser removed geometry,
+              placeholders, empty or script-mismatched names, long values, and non-road
+              features. It then deduplicated bilingual pairs and normalized dash variants.
+            </p>
+            <p class="lang-zh">
+              資料來源是 DATA.GOV.HK 上運輸署「第二代道路網絡」的道路中心線檔案，擷取日期為
+              2026 年 11 月 11 日。我串流讀取約 460 MB 的 GML 檔案，只保留官方中英文名稱、
+              對象編號及街道編號。處理程式移除幾何資料、佔位符、空白或文字系統不符的名稱、
+              過長項目及非道路要素，然後去除重複名稱對，並統一破折號格式。
+            </p>
+            <div class="method-grid">
+              <div class="method-card">
+                <strong>3,347</strong>
+                <span class="lang-en">raw unique pairs after the first filters</span>
+                <span class="lang-zh">初步篩選後的原始唯一名稱對</span>
+              </div>
+              <div class="method-card">
+                <strong>3,319</strong>
+                <span class="lang-en">after normalization collapsed 28 punctuation variants</span>
+                <span class="lang-zh">統一格式後合併了 28 個標點變體</span>
+              </div>
+              <div class="method-card">
+                <strong>500</strong>
+                <span class="lang-en">lowest SHA-256 ranks with seed 3620</span>
+                <span class="lang-zh">以種子 3620 選取最低 SHA-256 排名</span>
+              </div>
+              <div class="method-card">
+                <strong>2,819</strong>
+                <span class="lang-en">eligible pairs not selected by the seed</span>
+                <span class="lang-zh">未獲種子選中的合資格名稱對</span>
+              </div>
+            </div>
+            <p class="lang-en">
+              The first filters recorded 7,114 empty or placeholder values and 101
+              non-road features before deduplication. The final sample was not selected
+              by preference: every eligible pair was sorted by
+              SHA-256("3620:" + Chinese + TAB + English), and the lowest 500 hashes
+              were retained.
+            </p>
+            <p class="lang-zh">
+              初步篩選共記下 7,114 個空白或佔位符及 101 個非道路要素，重複資料其後才合併。
+              最終樣本並非按喜好選擇：所有合資格名稱對均按
+              SHA-256("3620:" + 中文 + TAB + 英文) 排序，只保留最低的 500 個雜湊值。
+            </p>
+
+            <h3><span class="lang-en">Coding and validation</span><span class="lang-zh">編碼與驗證</span></h3>
+            <p class="lang-en">
+              Four categories were defined before the final sample: phonetic
+              transliteration, semantic translation, hybrid phonetic-semantic rendering,
+              and conventional or indirect rendering. Cantonese Jyutping and a fixed
+              semantic glossary supplied evidence; the rules are published in the
+              codebook. I tested the rules on 30 examples and lowered the phonetic
+              threshold from 0.52 to 0.50 because several transparent sound matches
+              landed exactly at 0.50.
+            </p>
+            <p class="lang-zh">
+              最終樣本產生前，我先定義四個類別：音譯、意譯、音意混合，以及慣用或間接譯名。
+              粵語粵拼及固定語義詞表提供分類證據，完整規則刊於編碼手冊。我先用 30 個例子測試，
+              並把語音門檻由 0.52 調低至 0.50，因為若干明顯音譯剛好落在 0.50。
+            </p>
+            <div class="callout">
+              <p class="lang-en">
+                Automated validation currently passes: 500 rows, 500 unique IDs,
+                500 unique pairs, and all 500 pairs found in the reduced official
+                source cache. This is a source-match check, not the brief's required
+                personal check. A deterministic 50-entry review queue has been prepared,
+                but no row is yet marked <code>human_checked=yes</code>.
+              </p>
+              <p class="lang-zh">
+                目前自動驗證通過：500 列、500 個唯一編號、500 對唯一名稱，而且全部 500 對
+                均可在縮減後的官方來源快取中找到。這是來源比對，不等同作業要求的個人核對。
+                我已準備一份可重現的 50 項核對清單，但目前尚未有任何一列標記為
+                <code>human_checked=yes</code>。
+              </p>
+            </div>
+          </section>
+
+          <section id="analysis">
+            <h2><span class="lang-en">Analysis</span><span class="lang-zh">分析</span></h2>
+            <p class="lang-en">
+              The corpus is strongly sound-oriented: 378 of 500 sampled names
+              (75.6%) are phonetic transliterations. Semantic translation accounts
+              for 55 names (11.0%), conventional or indirect rendering for 56 (11.2%),
+              and hybrid rendering for 11 (2.2%).
+            </p>
+            <p class="lang-zh">
+              語料明顯以聲音為主：500 個抽樣名稱中有 378 個（75.6%）屬音譯；意譯有 55 個
+              （11.0%）、慣用或間接譯名有 56 個（11.2%），音意混合只有 11 個（2.2%）。
+            </p>
+            <div class="category-bars" aria-label="Translation strategy distribution">
+              <div class="bar-row">
+                <span data-en="Phonetic" data-zh="音譯">Phonetic</span>
+                <div class="bar-track"><div class="bar-fill c1"></div></div>
+                <strong>378</strong>
+              </div>
+              <div class="bar-row">
+                <span data-en="Semantic" data-zh="意譯">Semantic</span>
+                <div class="bar-track"><div class="bar-fill c2"></div></div>
+                <strong>55</strong>
+              </div>
+              <div class="bar-row">
+                <span data-en="Hybrid" data-zh="音意混合">Hybrid</span>
+                <div class="bar-track"><div class="bar-fill c3"></div></div>
+                <strong>11</strong>
+              </div>
+              <div class="bar-row">
+                <span data-en="Conventional" data-zh="慣用或間接">Conventional</span>
+                <div class="bar-track"><div class="bar-fill c4"></div></div>
+                <strong>56</strong>
+              </div>
+            </div>
+
+            <h3><span class="lang-en">Term network</span><span class="lang-zh">詞語網絡</span></h3>
+            <p class="lang-en">
+              The Term network asks which English name elements repeatedly connect to
+              the same Chinese characters. Frequent elements such as TAI, TIN, WAN,
+              CHUNG, and SHING create recurring phonetic clusters, while meaning-bearing
+              links involving 山, 海, 村, or 安 expose a second layer. Clicking any node
+              searches that exact element across both sides of the corpus.
+            </p>
+            <p class="lang-zh">
+              「詞語網絡」詢問哪些英文名稱成分會反覆連繫到相同中文字。TAI、TIN、WAN、
+              CHUNG、SHING 等常見成分形成重複的音譯群組；而涉及山、海、村或安的連繫，
+              則顯示另一層以意義為基礎的關係。點擊任何節點，即會在中英雙語語料中搜尋該成分。
+            </p>
+
+            <h3><span class="lang-en">Strategy treemap</span><span class="lang-zh">策略矩形樹圖</span></h3>
+            <p class="lang-en">
+              The Strategy treemap asks how the four categories divide into road types.
+              Road dominates the corpus, so its tiles are distributed across every
+              strategy. Street and Lane also carry many phonetic names, reflecting how
+              generic road words are paired with localized Cantonese elements. Clicking
+              a tile limits both the heatmap and data grid to that category and road type.
+            </p>
+            <p class="lang-zh">
+              「策略矩形樹圖」詢問四個類別如何分布到不同道路類型。Road 在語料中佔最多，
+              因此其色塊分布於所有策略；Street 與 Lane 亦包含大量音譯名稱，顯示通用道路詞
+              如何與本地化粵語成分結合。點擊任一色塊，會把熱圖及資料表同時限定於該類別與道路類型。
+            </p>
+
+            <h3><span class="lang-en">Sound-score heatmap</span><span class="lang-zh">語音分數熱圖</span></h3>
+            <p class="lang-en">
+              The Sound-score heatmap asks whether the categories behave differently on
+              Cantonese-English similarity. The separation is clear but not absolute:
+              all 378 phonetic names fall at or above 0.50, while semantic names fall
+              entirely below it (32 in 0-.24 and 23 in .25-.49). Most conventional names
+              also sit below 0.50, while hybrids cluster at 0.50 and above. Clicking a
+              cell combines its category and score band as filters.
+            </p>
+            <p class="lang-zh">
+              「語音分數熱圖」詢問各類別在粵英相似度上是否有不同表現。分隔清楚但並非絕對：
+              378 個音譯全部位於 0.50 或以上；意譯全部低於 0.50，其中 32 個在 0-.24，
+              23 個在 .25-.49。大部分慣用譯名亦低於 0.50，而混合類別集中於 0.50 以上。
+              點擊方格會把其類別及分數區間合併為篩選條件。
+            </p>
+
+            <h3><span class="lang-en">Data grid</span><span class="lang-zh">資料表</span></h3>
+            <p class="lang-en">
+              The data grid provides the audit layer. Sorting, searching, and exporting
+              use exactly the same filtered row set as all three charts. This makes it
+              possible to check whether a visible pattern is supported by the underlying
+              entries rather than only by a chart's geometry.
+            </p>
+            <p class="lang-zh">
+              「資料表」提供核查層。排序、搜尋及匯出均使用與三幅圖完全相同的篩選資料，
+              因此可以檢查圖中的模式是否真正由底層名稱支持，而不只是圖形產生的印象。
+            </p>
+          </section>
+
+          <section id="conclusion">
+            <h2><span class="lang-en">Conclusion</span><span class="lang-zh">結論</span></h2>
+            <p class="lang-en">
+              The sample shows that Hong Kong's bilingual street names are not one
+              translation method repeated 500 times. Sound is the dominant strategy,
+              but semantic and conventional names form a substantial minority. The
+              combination of network, hierarchy, distribution, and table makes those
+              strategies legible at both the individual and aggregate level.
+            </p>
+            <p class="lang-zh">
+              樣本顯示，香港雙語街道名稱不是同一種翻譯方法重複五百次。聲音是最主要的策略，
+              但意譯及慣用名稱也構成不可忽略的少數。網絡、層級、分布與表格的組合，
+              讓這些策略既可在單一名稱層面閱讀，也可在整體層面比較。
+            </p>
+          </section>
+
+          <section id="reflection">
+            <h2><span class="lang-en">Reflection</span><span class="lang-zh">反思</span></h2>
+            <p class="lang-en">
+              The most difficult problem was not collecting data but defining a category
+              that is consistent across names with different histories. An official pair
+              proves that two forms coexist; it does not prove which was translated first.
+              I therefore describe observable relationships rather than reconstructing
+              intentions. The semantic glossary is also incomplete, so
+              “conventional or indirect” remains a review category, not a final claim.
+            </p>
+            <p class="lang-zh">
+              最困難的地方不是收集資料，而是為歷史背景不同的名稱建立一致分類。官方名稱對證明
+              兩種形式同時存在，但不證明哪一個先被翻譯。因此，我描述可觀察的關係，而不推測命名者
+              的意圖。語義詞表並不完整，所以「慣用或間接」仍是待審核類別，而非最終定論。
+            </p>
+            <p class="lang-en">
+              I would improve the project by personally checking the 50 queued entries,
+              adding a second annotation pass after a break, and reporting agreement.
+              I would also test whether historical street-name sources can distinguish
+              Chinese-origin names from English-origin names more reliably.
+            </p>
+            <p class="lang-zh">
+              下一步，我會親自核對 50 個已排定的項目，在相隔一段時間後再編碼一次，並報告一致性。
+              我也會嘗試使用歷史街道命名資料，更可靠地區分中文起源與英文起源的名稱。
+            </p>
+          </section>
+
+          <section id="references">
+            <h2><span class="lang-en">References</span><span class="lang-zh">參考資料</span></h2>
+            <ol class="reference-list">
+              <li>
+                Transport Department, Hong Kong SAR Government. <em>Road Network
+                (2nd Generation): Road centerline</em>. DATA.GOV.HK.
+                <a href="https://data.gov.hk/en-data/dataset/hk-td-tis_15-road-network-v2">Dataset page</a>.
+                Retrieved 11 November 2026.
+              </li>
+              <li>Vinay, J.-P., and J. Darbelnet. 1958. <em>Stylistique comparée du français et de l'anglais</em>.</li>
+              <li>Newmark, Peter. 1988. <em>A Textbook of Translation</em>. Prentice Hall.</li>
+              <li>Venuti, Lawrence. 1995. <em>The Translator's Invisibility</em>. Routledge.</li>
+              <li>ToJyutping. Version 3.2.0. Used for Cantonese Jyutping evidence.</li>
+            </ol>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong data-en="Streetname Atlas" data-zh="香港街道譯名圖譜">Streetname Atlas</strong>
+          <p><span class="lang-en">Learning report and research reflection.</span><span class="lang-zh">學習報告與研究反思。</span></p>
+        </div>
+        <a href="index.html#explorer" data-en="Return to the explorer" data-zh="返回語料探索器">Return to the explorer</a>
+      </div>
+    </footer>
+
+    <script src="site/i18n.js"></script>
+  </body>
+</html>

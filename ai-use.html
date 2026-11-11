@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="AI use declaration for the Hong Kong street-name corpus project.">
+    <title>AI Use Declaration | Streetname Atlas</title>
+    <link rel="icon" href="site/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="site/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至內容">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap nav-shell">
+        <a class="brand" href="index.html" aria-label="Streetname Atlas home">
+          <span class="brand-mark" aria-hidden="true">字</span>
+          <span class="brand-copy">
+            <strong data-en="Streetname Atlas" data-zh="香港街道譯名圖譜">Streetname Atlas</strong>
+            <small data-en="Hong Kong name studies" data-zh="香港名稱研究">Hong Kong name studies</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html" data-en="Explore" data-zh="探索">Explore</a>
+          <a href="report.html" data-en="Learning report" data-zh="學習報告">Learning report</a>
+          <a href="codebook.html" data-en="Codebook" data-zh="編碼手冊">Codebook</a>
+          <a href="ai-use.html" aria-current="page" data-en="AI use" data-zh="AI 使用聲明">AI use</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-language-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-language-choice="zh" aria-pressed="false">繁</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow" data-en="Transparency" data-zh="透明度">Transparency</p>
+          <h1><span class="lang-en">AI use declaration</span><span class="lang-zh">AI 使用聲明</span></h1>
+          <p>
+            <span class="lang-en">What the agent did, what still requires human judgement, and one mistake that changed the workflow.</span>
+            <span class="lang-zh">AI 做了甚麼、哪些工作仍需人手判斷，以及一個改變工作流程的錯誤。</span>
+          </p>
+        </div>
+      </section>
+
+      <div class="wrap page-layout">
+        <aside class="page-toc" aria-label="Declaration contents">
+          <strong data-en="Contents" data-zh="目錄">Contents</strong>
+          <a href="#tools" data-en="Tools" data-zh="工具">Tools</a>
+          <a href="#division" data-en="Division of work" data-zh="工作分工">Division of work</a>
+          <a href="#prompts" data-en="Useful prompts" data-zh="有效提示">Useful prompts</a>
+          <a href="#errors" data-en="AI error" data-zh="AI 錯誤">AI error</a>
+          <a href="#limits" data-en="Limits" data-zh="限制">Limits</a>
+        </aside>
+
+        <article class="prose">
+          <section id="tools">
+            <h2><span class="lang-en">Tools used</span><span class="lang-zh">使用的工具</span></h2>
+            <p class="lang-en">
+              OpenAI Codex in the Codex desktop app, based on GPT-5. Supporting tools
+              included Git and GitHub, D3.js for the interactive views, and the
+              ToJyutping library as evidence for Cantonese sound matching.
+            </p>
+            <p class="lang-zh">
+              Codex 桌面應用程式中的 OpenAI Codex（基於 GPT-5）。輔助工具包括 Git 與 GitHub、
+              用於互動圖表的 D3.js，以及提供粵語語音證據的 ToJyutping 程式庫。
+            </p>
+          </section>
+
+          <section id="division">
+            <h2><span class="lang-en">Division of work</span><span class="lang-zh">工作分工</span></h2>
+            <h3><span class="lang-en">AI assistance</span><span class="lang-zh">AI 協助</span></h3>
+            <ul class="lang-en">
+              <li>Located the official DATA.GOV.HK road dataset and streamed its bilingual name fields.</li>
+              <li>Filtered, normalized, deduplicated, sampled, and validated the 500-entry corpus.</li>
+              <li>Drafted the four coding rules and applied them with Jyutping and semantic evidence.</li>
+              <li>Generated the static website, three linked visualizations, search, filters, URL state, CSV export, report, codebook, and bilingual interface.</li>
+            </ul>
+            <ul class="lang-zh">
+              <li>尋找 DATA.GOV.HK 官方道路資料，並串流處理其中的雙語名稱欄位。</li>
+              <li>篩選、統一格式、去除重複、抽樣及驗證 500 項語料。</li>
+              <li>草擬四項編碼規則，並以粵拼及語義證據分類。</li>
+              <li>建立靜態網站、三項連動圖表、搜尋、篩選、網址狀態、CSV 匯出、報告、編碼手冊及雙語介面。</li>
+            </ul>
+            <h3><span class="lang-en">Project owner</span><span class="lang-zh">項目負責人</span></h3>
+            <ul class="lang-en">
+              <li>Chose the topic of Hong Kong street-name translation.</li>
+              <li>Noticed that the first uploaded CSV contained the previous humor corpus and rejected that mismatch.</li>
+              <li>Must personally check at least 50 queued entries against the official source, mark them, and review the codebook in their own words before submission.</li>
+              <li>Must be able to explain the categories and one classification decision in the oral presentation.</li>
+            </ul>
+            <ul class="lang-zh">
+              <li>選擇香港街道名稱翻譯作為題目。</li>
+              <li>發現最初上載的 CSV 是舊的笑話語料，並指出題目不符。</li>
+              <li>必須在提交前親自對照官方來源核對至少 50 項清單、更新標記，並用自己的文字檢視編碼手冊。</li>
+              <li>必須能在口頭報告中解釋各類別及一個分類決定。</li>
+            </ul>
+          </section>
+
+          <section id="prompts">
+            <h2><span class="lang-en">Example prompts that worked</span><span class="lang-zh">有效的提示例子</span></h2>
+            <div class="prompt-box">
+              <div class="lang-en">
+                “Build a reproducible 500-entry corpus of official bilingual Hong Kong
+                street names. Use a traceable public source, record the seed and filters,
+                classify transliteration versus semantic translation, and validate every
+                row against the source before publishing.”
+              </div>
+              <div class="lang-zh">
+                「建立 500 項可重現的香港官方雙語街道名稱語料。使用可追溯的公開來源，
+                記錄種子及篩選條件，分類音譯與意譯，並在發布前逐項對照來源驗證。」
+              </div>
+            </div>
+            <div class="prompt-box">
+              <div class="lang-en">
+                “Make search and every filter update the network, treemap, heatmap, and
+                data table together. Make chart elements clickable, save state in the URL,
+                and check every chart count against the same filtered table.”
+              </div>
+              <div class="lang-zh">
+                「讓搜尋及所有篩選同步更新網絡圖、矩形樹圖、熱圖及資料表。圖表元素必須可點擊，
+                狀態保存在網址，並核對每幅圖的數字是否與同一個篩選資料表一致。」
+              </div>
+            </div>
+          </section>
+
+          <section id="errors">
+            <h2><span class="lang-en">One important AI error</span><span class="lang-zh">一個重要的 AI 錯誤</span></h2>
+            <p class="lang-en">
+              After the topic changed from subtitle humor to street names, the assistant
+              pushed the old 500-entry humor CSV into the new street-name repository.
+              The project owner opened the file and immediately noticed that every row
+              was about jokes rather than streets. The file was removed, and a new
+              corpus was built from the official Transport Department dataset instead.
+            </p>
+            <p class="lang-zh">
+              題目由字幕幽默改為街道名稱後，AI 助手一度把舊有的 500 項笑話語料 CSV
+              推送到新的街道名稱儲存庫。項目負責人打開檔案後，立即發現每一列都是笑話而非街道。
+              該檔案其後被移除，並改以運輸署官方資料重建語料。
+            </p>
+            <div class="callout">
+              <p class="lang-en">
+                The lesson was concrete: a correct-looking file still needs a topic check,
+                source check, and row-level preview. Automated validation alone cannot
+                catch every wrong-context decision.
+              </p>
+              <p class="lang-zh">
+                這次錯誤說明：檔案即使格式正確，仍需檢查題目、來源及實際列值。
+                自動驗證不能取代對整體語境的判斷。
+              </p>
+            </div>
+          </section>
+
+          <section id="limits">
+            <h2><span class="lang-en">Limits and remaining human work</span><span class="lang-zh">限制與尚待完成的人工工作</span></h2>
+            <div class="status-list">
+              <div class="status-item done">
+                <span class="status-dot" aria-hidden="true"></span>
+                <p><span class="lang-en">500 official pairs extracted and machine-matched to the source.</span><span class="lang-zh">已抽取 500 對官方名稱，並與來源自動比對。</span></p>
+              </div>
+              <div class="status-item done">
+                <span class="status-dot" aria-hidden="true"></span>
+                <p><span class="lang-en">Three linked interactive visualizations, search, filters, URL state, and CSV export implemented.</span><span class="lang-zh">已完成三幅連動互動圖表、搜尋、篩選、網址狀態及 CSV 匯出。</span></p>
+              </div>
+              <div class="status-item">
+                <span class="status-dot" aria-hidden="true"></span>
+                <p><span class="lang-en">Personal verification of 50 entries is pending. Open the review queue and compare each row with the official source.</span><span class="lang-zh">50 項個人核對尚未完成。請打開核對清單，逐列與官方來源比較。</span></p>
+              </div>
+              <div class="status-item">
+                <span class="status-dot" aria-hidden="true"></span>
+                <p><span class="lang-en">The project owner should revise the codebook wording and rehearse the five-minute explanation.</span><span class="lang-zh">項目負責人應用自己的文字修訂編碼手冊，並準備五分鐘口頭說明。</span></p>
+              </div>
+            </div>
+            <p>
+              <a class="button button-ghost button-small" href="data/manual_review_queue.csv">
+                <span data-en="Download the 50-entry review queue" data-zh="下載 50 項核對清單">Download the 50-entry review queue</span>
+              </a>
+            </p>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <strong data-en="Streetname Atlas" data-zh="香港街道譯名圖譜">Streetname Atlas</strong>
+          <p><span class="lang-en">AI use is disclosed as part of the project method.</span><span class="lang-zh">AI 使用情況作為研究方法的一部分公開說明。</span></p>
+        </div>
+        <a href="index.html#explorer" data-en="Open the explorer" data-zh="打開探索器">Open the explorer</a>
+      </div>
+    </footer>
+
+    <script src="site/i18n.js"></script>
+  </body>
+</html>
