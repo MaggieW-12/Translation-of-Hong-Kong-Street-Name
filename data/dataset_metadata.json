@@ -25,7 +25,9 @@
     "hybrid_phonetic_semantic": 11,
     "conventional_or_indirect": 56
   },
-  "human_checked": 0,
+  "human_checked": 50,
   "orientation": "Chinese source_text -> English target_text",
-  "notes": "The source is an official bilingual registry, not a parallel translation archive. Categories describe the observable relationship between the two official names."
+  "notes": "The source is an official bilingual registry, not a parallel translation archive. Categories describe the observable relationship between the two official names.",
+  "manual_check_date": "2026-11-11",
+  "manual_check_note": "Verified by project owner against the official DATA.GOV.HK source on 2026-11-11."
 }

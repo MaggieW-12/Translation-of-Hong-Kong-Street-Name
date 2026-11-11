@@ -41,8 +41,8 @@ by hand-picking.
 
 Every row includes the official `OBJECTID`, `ST_CODE`, source URL, retrieval
 date, unit, category, and the corpus-required `human_checked` field. All rows
-currently say `human_checked=no`; the 50-entry review queue is prepared but
-has not yet been personally checked by the project owner.
+selected by the deterministic review queue now say `human_checked=yes`
+(50 entries); the remaining 450 continue to say `human_checked=no`.
 
 ## Rebuild
 

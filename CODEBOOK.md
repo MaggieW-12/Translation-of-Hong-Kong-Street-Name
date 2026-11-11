@@ -88,5 +88,6 @@ historical explanation.
 ## Current quality status
 
 All 500 rows were machine-checked against the reduced official-name cache.
-Personal source checking is still pending. `human_checked=yes` must only be
-entered after a person compares the row with the official DATA.GOV.HK source.
+Fifty entries from the deterministic review queue were personally checked
+against the official DATA.GOV.HK source on 11 November 2026 and are marked
+`human_checked=yes`; the remaining 450 are marked `no`.

@@ -110,6 +110,12 @@ def main() -> None:
         source_matches = len(rows) - len(missing)
 
     review_ids = set(sample_review_ids(ids))
+    previous_reviews: dict[str, dict[str, str]] = {}
+    if REVIEW_QUEUE.exists():
+        with REVIEW_QUEUE.open(encoding="utf-8-sig", newline="") as stream:
+            previous_reviews = {
+                row["id"]: row for row in csv.DictReader(stream)
+            }
     review_rows = [row for row in rows if row["id"] in review_ids]
     with REVIEW_QUEUE.open("w", encoding="utf-8-sig", newline="") as stream:
         writer = csv.DictWriter(
@@ -136,6 +142,14 @@ def main() -> None:
                         "source",
                         "category",
                     )
+                }
+                | {
+                    "reviewed_against_source": previous_reviews.get(
+                        row["id"], {}
+                    ).get("reviewed_against_source", ""),
+                    "review_notes": previous_reviews.get(row["id"], {}).get(
+                        "review_notes", ""
+                    ),
                 }
             )
 
