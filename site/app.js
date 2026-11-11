@@ -9,7 +9,7 @@
   ];
   const scoreBands = ["0-.24", ".25-.49", ".50-.74", ".75-1.00"];
   const categoryColors = {
-    phonetic_transliteration: "#0c5c4b",
+    phonetic_transliteration: "#173b63",
     semantic_translation: "#b94d34",
     hybrid_phonetic_semantic: "#bd8a34",
     conventional_or_indirect: "#6f7d87",
@@ -380,7 +380,7 @@
       .append("circle")
       .attr("r", nodeRadius)
       .attr("fill", (item) =>
-        item.type === "chinese" ? "#b94d34" : "#0c5c4b",
+        item.type === "chinese" ? "#b94d34" : "#173b63",
       )
       .attr("stroke", "#fffdf7")
       .attr("stroke-width", 1.5);
@@ -553,7 +553,7 @@
     const color = d3
       .scaleSequential()
       .domain([0, maxCount])
-      .interpolator(d3.interpolateRgb("#edf2ee", "#0c5c4b"));
+      .interpolator(d3.interpolateRgb("#edf1f7", "#173b63"));
 
     svg
       .append("g")
