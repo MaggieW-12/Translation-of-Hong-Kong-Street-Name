@@ -1,9 +1,9 @@
 :root {
   --ink: #17251f;
   --ink-soft: #42574d;
-  --paper: #f4f0e5;
-  --paper-deep: #e8e0cf;
-  --panel: #fffdf7;
+  --paper: #dcebfa;
+  --paper-deep: #c8dbee;
+  --panel: #f7fbff;
   --navy: #173b63;
   --navy-deep: #081d36;
   --navy-soft: #dbe6f2;
@@ -38,7 +38,7 @@ body {
   color: var(--ink);
   background:
     radial-gradient(circle at 8% 8%, rgb(189 138 52 / 10%), transparent 28rem),
-    linear-gradient(180deg, #f7f3ea 0%, var(--paper) 55%, #eee8da 100%);
+    linear-gradient(180deg, #eff7fd 0%, var(--paper) 55%, #d2e4f5 100%);
   font-family: var(--font-sans);
   line-height: 1.65;
 }
@@ -136,7 +136,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
   position: relative;
   z-index: 20;
   border-bottom: 1px solid rgb(23 37 31 / 18%);
-  background: rgb(247 243 234 / 91%);
+  background: rgb(239 247 253 / 92%);
   backdrop-filter: blur(14px);
 }
 
@@ -474,7 +474,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
   position: sticky;
   top: 1rem;
   padding: 1.2rem;
-  background: rgb(255 253 247 / 82%);
+  background: rgb(248 252 255 / 84%);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: 0 12px 30px rgb(23 37 31 / 6%);
@@ -530,7 +530,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
   min-height: 44px;
   padding: 0.62rem 0.72rem;
   color: var(--ink);
-  background: #fffefa;
+  background: #fbfdff;
   border: 1px solid var(--line);
   border-radius: 9px;
 }
@@ -645,7 +645,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
 .chart-card {
   min-width: 0;
   padding: 1.1rem;
-  background: rgb(255 253 247 / 88%);
+  background: rgb(248 252 255 / 90%);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: 0 12px 30px rgb(23 37 31 / 5%);
@@ -771,7 +771,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
 .data-panel {
   margin-top: 1rem;
   padding: 1.1rem;
-  background: rgb(255 253 247 / 88%);
+  background: rgb(248 252 255 / 90%);
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
@@ -819,7 +819,7 @@ th {
   padding: 0.7rem 0.55rem;
   color: var(--ink-soft);
   text-align: left;
-  background: #f8f4eb;
+  background: #edf5fc;
   border-bottom: 1px solid var(--line-strong);
   font-size: 0.67rem;
   font-weight: 700;
