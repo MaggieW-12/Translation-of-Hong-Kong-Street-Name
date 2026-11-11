@@ -212,15 +212,15 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
 .lang-switch {
   display: flex;
   padding: 0.2rem;
-  background: var(--paper-deep);
-  border: 1px solid var(--line);
+  background: #eef7ff;
+  border: 1px solid #bfd8ec;
   border-radius: 999px;
 }
 
 .lang-switch button {
   min-width: 36px;
   padding: 0.35rem 0.55rem;
-  color: var(--ink-soft);
+  color: var(--navy);
   background: transparent;
   border: 0;
   border-radius: 999px;
@@ -229,8 +229,8 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
 }
 
 .lang-switch button[aria-pressed="true"] {
-  color: #fff;
-  background: var(--jade);
+  color: var(--navy-deep);
+  background: #b9d8f2;
 }
 
 .hero {
