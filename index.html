@@ -7,7 +7,7 @@
       name="description"
       content="An interactive corpus of 500 official bilingual Hong Kong street and road names."
     >
-    <title>Streetnames | Translation of Hong Kong Street Names</title>
+    <title>HK Streetnames Atlas | Translation of Hong Kong Street Names</title>
     <link rel="icon" href="site/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +22,10 @@
 
     <header class="site-header">
       <div class="wrap nav-shell">
-        <a class="brand" href="index.html" aria-label="Streetnames home">
+        <a class="brand" href="index.html" aria-label="HK Streetnames Atlas home">
           <span class="brand-mark" aria-hidden="true">字</span>
           <span class="brand-copy">
-            <strong data-en="Streetnames" data-zh="香港街道譯名圖譜">Streetnames</strong>
+            <strong data-en="HK Streetnames Atlas" data-zh="香港街道譯名圖譜">HK Streetnames Atlas</strong>
             <small data-en="Hong Kong name studies" data-zh="香港名稱研究">Hong Kong name studies</small>
           </span>
         </a>
@@ -51,7 +51,7 @@
                 <span data-en="A bilingual name atlas" data-zh="雙語街道名稱圖譜">A bilingual name atlas</span>
               </p>
               <h1>
-                <span data-en="How Hong Kong streets speak" data-zh="香港街道，如何說話？">How Hong Kong streets speak</span>
+                <span data-en="How Hong Kong Street Names Present?" data-zh="香港街道名稱如何呈現？">How Hong Kong Street Names Present?</span>
                 <span class="subtitle lang-en">Sound, meaning, and memory in 500 official bilingual names</span>
                 <span class="subtitle lang-zh">五百個官方雙語名稱中的聲音、意義與記憶</span>
               </h1>
@@ -76,14 +76,92 @@
 
             <aside class="hero-card" aria-label="Source information">
               <div class="route-mini" aria-hidden="true">
-                <svg viewBox="0 0 420 230">
-                  <path d="M-20 52 C80 80, 72 172, 190 166 S320 58, 450 95" fill="none" stroke="#d9ba73" stroke-width="18" stroke-linecap="round"/>
-                  <path d="M-20 52 C80 80, 72 172, 190 166 S320 58, 450 95" fill="none" stroke="#fff8e8" stroke-width="3"/>
-                  <path d="M52 230 C90 160, 130 120, 175 90 S270 20, 300 -15" fill="none" stroke="#e8dfce" stroke-width="8" stroke-linecap="round" opacity=".75"/>
-                  <circle cx="188" cy="166" r="8" fill="#b94d34" stroke="#fff8e8" stroke-width="3"/>
-                  <text x="202" y="170" fill="#fff8e8" font-size="11" font-family="DM Mono, monospace">花園道</text>
-                  <text x="105" y="72" fill="#d9ba73" font-size="10" font-family="DM Mono, monospace">GARDEN ROAD</text>
-                  <text x="296" y="62" fill="#fff8e8" font-size="11" font-family="DM Mono, monospace">干諾道</text>
+                <svg viewBox="0 0 460 300" role="presentation">
+                  <defs>
+                    <linearGradient id="map-bg" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#126451"/>
+                      <stop offset=".58" stop-color="#073b31"/>
+                      <stop offset="1" stop-color="#092b27"/>
+                    </linearGradient>
+                    <linearGradient id="harbour" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#0d554a"/>
+                      <stop offset="1" stop-color="#1b7164"/>
+                    </linearGradient>
+                    <linearGradient id="road-gold" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#f4d992"/>
+                      <stop offset=".54" stop-color="#d7ad59"/>
+                      <stop offset="1" stop-color="#ad7622"/>
+                    </linearGradient>
+                    <radialGradient id="map-glow">
+                      <stop offset="0" stop-color="#f0cf7f" stop-opacity=".32"/>
+                      <stop offset="1" stop-color="#f0cf7f" stop-opacity="0"/>
+                    </radialGradient>
+                    <pattern id="map-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#f4f0e5" stroke-width=".65" opacity=".12"/>
+                    </pattern>
+                    <filter id="marker-shadow" x="-100%" y="-100%" width="300%" height="300%">
+                      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#001b16" flood-opacity=".55"/>
+                    </filter>
+                    <clipPath id="map-clip">
+                      <rect x="1" y="1" width="458" height="298" rx="23"/>
+                    </clipPath>
+                  </defs>
+                  <g clip-path="url(#map-clip)">
+                    <rect width="460" height="300" fill="url(#map-bg)"/>
+                    <rect width="460" height="300" fill="url(#map-grid)"/>
+                    <circle cx="365" cy="96" r="128" fill="url(#map-glow)"/>
+                    <g fill="none" stroke="#d7eadf" opacity=".11">
+                      <path d="M294 32c48 22 66 59 80 106s57 71 94 72"/>
+                      <path d="M309 18c47 22 66 61 79 103s53 72 87 75"/>
+                      <path d="M326 4c43 26 60 57 71 96s48 74 79 79"/>
+                    </g>
+                    <path d="M-20 222 45 153l34 25 44-58 42 39 47-44 46 59 42-25 50 53 60-33 51 53v78H-20Z" fill="#092f29" opacity=".86"/>
+                    <path d="M-10 240c79-18 136-7 207 9s147 10 275-15v70H-10Z" fill="url(#harbour)" opacity=".96"/>
+                    <g fill="none" stroke="#cbded4" stroke-width="1" opacity=".2">
+                      <path d="M18 272c55-10 99-9 151 4"/>
+                      <path d="M226 281c66-13 132-18 208-6"/>
+                      <path d="M53 290c53-8 93-6 139 2"/>
+                    </g>
+                    <g fill="#e9e0cd" opacity=".18">
+                      <rect x="28" y="71" width="26" height="53" rx="3"/>
+                      <rect x="59" y="91" width="18" height="33" rx="2"/>
+                      <rect x="81" y="64" width="30" height="60" rx="3"/>
+                      <rect x="116" y="83" width="19" height="41" rx="2"/>
+                      <rect x="356" y="177" width="27" height="45" rx="3"/>
+                      <rect x="389" y="156" width="17" height="66" rx="2"/>
+                      <rect x="411" y="182" width="32" height="40" rx="3"/>
+                    </g>
+                    <path d="M28 300c37-82 79-113 131-126 58-15 99-60 150-72 49-11 96 11 166 4" fill="none" stroke="#001f1a" stroke-width="44" stroke-linecap="round" opacity=".7"/>
+                    <path d="M28 300c37-82 79-113 131-126 58-15 99-60 150-72 49-11 96 11 166 4" fill="none" stroke="url(#road-gold)" stroke-width="34" stroke-linecap="round"/>
+                    <path d="M28 300c37-82 79-113 131-126 58-15 99-60 150-72 49-11 96 11 166 4" fill="none" stroke="#fff8e8" stroke-width="1.6" stroke-dasharray="4 7" opacity=".9"/>
+                    <path d="M87 300c28-54 53-77 87-100 38-26 48-76 84-108 37-33 77-39 125-43" fill="none" stroke="#dbe7df" stroke-width="8" stroke-linecap="round" opacity=".4"/>
+                    <path d="M-10 112c58 17 96 5 140-12 48-18 78-9 102 12" fill="none" stroke="#f1e8d6" stroke-width="2.2" opacity=".28"/>
+                    <g transform="translate(54 73) rotate(-4)" filter="url(#marker-shadow)">
+                      <rect width="113" height="41" rx="8" fill="#fff8e8"/>
+                      <rect x="5" y="5" width="103" height="31" rx="5" fill="none" stroke="#0c5c4b" stroke-width="1.5"/>
+                      <text x="12" y="19" fill="#0c5c4b" font-size="11" font-weight="700" font-family="Noto Serif TC, serif">花園道</text>
+                      <text x="12" y="31" fill="#b94d34" font-size="7" letter-spacing="1" font-family="DM Mono, monospace">GARDEN ROAD</text>
+                    </g>
+                    <g transform="translate(283 184) rotate(3)" filter="url(#marker-shadow)">
+                      <rect width="122" height="41" rx="8" fill="#fff8e8"/>
+                      <rect x="5" y="5" width="112" height="31" rx="5" fill="none" stroke="#0c5c4b" stroke-width="1.5"/>
+                      <text x="12" y="19" fill="#0c5c4b" font-size="11" font-weight="700" font-family="Noto Serif TC, serif">干諾道</text>
+                      <text x="12" y="31" fill="#b94d34" font-size="6.5" letter-spacing=".8" font-family="DM Mono, monospace">CONNAUGHT ROAD</text>
+                    </g>
+                    <g transform="translate(202 149)" filter="url(#marker-shadow)">
+                      <circle r="18" fill="#b94d34" opacity=".16"/>
+                      <circle r="11" fill="#b94d34" stroke="#fff8e8" stroke-width="3"/>
+                      <circle r="3.2" fill="#fff8e8"/>
+                      <path d="M11-18 25-31" fill="none" stroke="#fff8e8" stroke-width="1.3"/>
+                    </g>
+                    <g transform="translate(384 45)" fill="none" stroke="#f2e7ce">
+                      <circle r="22" stroke-width="1" opacity=".45"/>
+                      <path d="M0-17 5-5 17 0 5 5 0 17-5 5-17 0-5-5Z" fill="#f2e7ce" stroke="none" opacity=".9"/>
+                      <text x="-12" y="-28" fill="#d8c99f" stroke="none" font-size="7" font-family="DM Mono, monospace">N · 北</text>
+                    </g>
+                    <rect x="22" y="19" width="113" height="25" rx="12.5" fill="#fff8e8" opacity=".1"/>
+                    <text x="36" y="36" fill="#f2e7ce" font-size="7.5" letter-spacing="1.1" font-family="DM Mono, monospace">SOUND · MEANING · PLACE</text>
+                  </g>
                 </svg>
               </div>
               <div class="hero-card-label">
@@ -325,7 +403,7 @@
     <footer class="site-footer">
       <div class="wrap footer-grid">
         <div>
-          <strong data-en="Streetnames" data-zh="香港街道譯名圖譜">Streetnames</strong>
+          <strong data-en="HK Streetnames Atlas" data-zh="香港街道譯名圖譜">HK Streetnames Atlas</strong>
           <p>
             <span class="lang-en">Built from the Transport Department's Road Network (2nd Generation) on DATA.GOV.HK. Retrieved 11 November 2026.</span>
             <span class="lang-zh">資料源自 DATA.GOV.HK 上運輸署「第二代道路網絡」；擷取日期為 2026 年 11 月 11 日。</span>
