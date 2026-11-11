@@ -268,7 +268,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
   align-items: center;
   gap: 0.65rem;
   margin: 0 0 1rem;
-  color: var(--vermilion);
+  color: var(--navy);
   font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 500;
@@ -442,7 +442,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
 
 .section-kicker {
   margin: 0 0 0.45rem;
-  color: var(--vermilion);
+  color: var(--navy);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 500;
