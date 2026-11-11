@@ -622,7 +622,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
 }
 
 .result-count span {
-  color: var(--vermilion);
+  color: var(--navy);
 }
 
 .active-filter {
@@ -678,8 +678,8 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
 
 .chart-tag {
   padding: 0.2rem 0.48rem;
-  color: var(--vermilion);
-  background: var(--vermilion-soft);
+  color: var(--navy);
+  background: var(--navy-soft);
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 0.62rem;
