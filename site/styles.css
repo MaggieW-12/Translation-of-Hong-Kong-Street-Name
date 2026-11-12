@@ -1309,7 +1309,7 @@ tbody tr:hover {
 }
 
 .treemap-label {
-  fill: var(--ink);
+  fill: #fffdf7;
   font-family: var(--font-sans);
   font-size: 9px;
   font-weight: 600;
