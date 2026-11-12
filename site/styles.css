@@ -1103,6 +1103,11 @@ tbody tr:hover {
   border-color: var(--jade);
 }
 
+#errors .callout {
+  background: #e5f2fc;
+  border-color: var(--navy);
+}
+
 .category-bars {
   display: grid;
   gap: 0.85rem;
