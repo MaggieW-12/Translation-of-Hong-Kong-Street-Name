@@ -513,7 +513,7 @@
       });
 
     leaves
-      .filter((item) => item.x1 - item.x0 > 54 && item.y1 - item.y0 > 24)
+      .filter((item) => item.x1 - item.x0 > 42 && item.y1 - item.y0 > 18)
       .append("text")
       .attr("class", "treemap-label")
       .attr("x", (item) => item.x0 + 4)
