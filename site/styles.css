@@ -1018,7 +1018,7 @@ tbody tr:hover {
 .page-toc strong {
   display: block;
   margin-bottom: 0.6rem;
-  color: var(--navy);
+  color: #173b63 !important;
   font-family: var(--font-mono);
   font-size: 0.67rem;
   letter-spacing: 0.1em;
