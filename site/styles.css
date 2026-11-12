@@ -344,6 +344,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
 .button-ghost {
   color: var(--ink);
   background: transparent;
+  border-color: var(--navy);
 }
 
 .button-ghost:hover {
@@ -475,7 +476,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
   top: 1rem;
   padding: 1.2rem;
   background: rgb(248 252 255 / 84%);
-  border: 1px solid var(--line);
+  border: 1px solid var(--navy);
   border-radius: var(--radius);
   box-shadow: 0 12px 30px rgb(23 37 31 / 6%);
 }
@@ -531,7 +532,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
   padding: 0.62rem 0.72rem;
   color: var(--ink);
   background: #fbfdff;
-  border: 1px solid var(--line);
+  border: 1px solid var(--navy);
   border-radius: 9px;
 }
 
@@ -646,7 +647,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
   min-width: 0;
   padding: 1.1rem;
   background: rgb(248 252 255 / 90%);
-  border: 1px solid var(--line);
+  border: 1px solid var(--navy);
   border-radius: var(--radius);
   box-shadow: 0 12px 30px rgb(23 37 31 / 5%);
 }
@@ -772,7 +773,7 @@ html[data-lang="zh"] .hero h1 .subtitle.lang-zh {
   margin-top: 1rem;
   padding: 1.1rem;
   background: rgb(248 252 255 / 90%);
-  border: 1px solid var(--line);
+  border: 1px solid var(--navy);
   border-radius: var(--radius);
 }
 
