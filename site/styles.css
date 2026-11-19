@@ -1221,7 +1221,7 @@ tbody tr:hover {
 
 .example {
   padding: 0.7rem 0.8rem;
-  background: var(--paper);
+  background: #fff;
   border-radius: 8px;
 }
 
