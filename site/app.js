@@ -676,8 +676,14 @@
     });
     const maxCount = Math.max(1, ...counts.values());
     const width = Math.max(host.clientWidth, 280);
-    const height = width < 500 ? 300 : 300;
-    const margin = { top: 34, right: 8, bottom: 16, left: 126 };
+    const compact = width < 520;
+    const height = compact ? 460 : 340;
+    const margin = {
+      top: compact ? 52 : 42,
+      right: 8,
+      bottom: compact ? 18 : 14,
+      left: compact ? 96 : 118,
+    };
     const cellWidth = (width - margin.left - margin.right) / scoreBands.length;
     const cellHeight = (height - margin.top - margin.bottom) / categories.length;
     const svg = d3

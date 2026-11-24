@@ -1367,13 +1367,13 @@ tbody tr:hover {
 .heat-value {
   fill: var(--ink);
   font-family: var(--font-sans);
-  font-size: 9px;
+  font-size: 10.5px;
 }
 
 .heat-axis {
   fill: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 8px;
+  font-size: 9.5px;
 }
 
 @media (max-width: 980px) {
