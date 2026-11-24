@@ -317,8 +317,8 @@
                     <div>
                       <h3 class="chart-title" data-en="Term network" data-zh="詞語網絡">Term network</h3>
                       <p class="chart-caption">
-                        <span class="lang-en">Which English name elements repeatedly connect to the same Chinese characters?</span>
-                        <span class="lang-zh">哪些英文名稱成分會反覆連繫到相同的中文字？</span>
+                        <span class="lang-en">Which English name elements repeatedly share street names with the same Chinese characters?</span>
+                        <span class="lang-zh">哪些英文名稱成分會反覆與相同的中文字出現在同一街道名稱中？</span>
                       </p>
                     </div>
                     <span class="chart-tag" data-en="Relational" data-zh="關係型">Relational</span>
@@ -330,17 +330,28 @@
                       <span class="control-value" id="network-terms-value">14</span>
                     </label>
                     <label class="control-inline" for="network-min">
-                      <span data-en="Minimum links" data-zh="最少連繫">Minimum links</span>
-                      <input id="network-min" type="range" min="1" max="5" value="1" step="1">
-                      <span class="control-value" id="network-min-value">1</span>
+                      <span data-en="Minimum shared names" data-zh="最少共同名稱數">Minimum shared names</span>
+                      <input id="network-min" type="range" min="1" max="5" value="2" step="1">
+                      <span class="control-value" id="network-min-value">2</span>
                     </label>
+                  </div>
+                  <div class="network-guide">
+                    <div class="network-guide-flow" aria-hidden="true">
+                      <span class="network-guide-node network-guide-node--english"></span>
+                      <span class="network-guide-link"></span>
+                      <span class="network-guide-node network-guide-node--chinese"></span>
+                    </div>
+                    <p>
+                      <span class="lang-en"><strong>Read left to right.</strong> Each line connects an English element to a Chinese character used in the same street name. Thicker lines mean more shared names; larger circles mean more frequent elements.</span>
+                      <span class="lang-zh"><strong>由左至右閱讀。</strong>每條線連接同一街道名稱中的英文成分與中文字；線越粗代表共同出現的名稱越多，圓點越大代表該成分越常見。</span>
+                    </p>
                   </div>
                   <div class="viz-frame network-frame" id="network-chart"></div>
                   <p class="sr-only" id="network-summary" aria-live="polite"></p>
                   <div class="legend-row" aria-hidden="true">
                     <span class="legend-item"><span class="legend-dot" style="background:#173b63"></span><span data-en="English element" data-zh="英文成分">English element</span></span>
                     <span class="legend-item"><span class="legend-dot" style="background:#b94d34"></span><span data-en="Chinese character" data-zh="中文字">Chinese character</span></span>
-                    <span class="legend-item"><span data-en="Drag nodes or use the mouse wheel to zoom." data-zh="可拖曳節點或使用滑輪縮放。">Drag nodes or use the mouse wheel to zoom.</span></span>
+                    <span class="legend-item"><span data-en="Click a node to search. Drag to untangle; scroll to zoom." data-zh="點擊圓點可搜尋；拖曳可整理位置，滾輪可縮放。">Click a node to search. Drag to untangle; scroll to zoom.</span></span>
                   </div>
                 </article>
 

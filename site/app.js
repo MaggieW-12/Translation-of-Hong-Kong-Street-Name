@@ -51,7 +51,7 @@
     direction: "asc",
     show: 25,
     topTerms: 14,
-    minLink: 1,
+    minLink: 2,
   };
 
   function t(key, values) {
@@ -240,7 +240,10 @@
     const selectedTerms = new Set(topTerms.map(([term]) => term));
     const topCharacters = [...characterCounts.entries()]
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-      .slice(0, Math.max(18, Math.round(state.topTerms * 1.65)));
+      .slice(
+        0,
+        Math.max(12, Math.min(18, Math.round(state.topTerms * 1.15))),
+      );
     const selectedCharacters = new Set(
       topCharacters.map(([character]) => character),
     );
@@ -293,13 +296,52 @@
     }
 
     const width = Math.max(host.clientWidth, 300);
-    const height = width < 560 ? 350 : 430;
+    const height = width < 560 ? 440 : 460;
+    const leftX = width < 560 ? width * 0.31 : width * 0.27;
+    const rightX = width < 560 ? width * 0.76 : width * 0.73;
+    const columnX = (item) => (item.type === "english" ? leftX : rightX);
+    const columnTop = 64;
+    const columnBottom = 24;
+    const positionColumn = (items, x) => {
+      const step = (height - columnTop - columnBottom) / Math.max(1, items.length);
+      items.forEach((item, index) => {
+        item.x = x;
+        item.fx = x;
+        item.y = columnTop + step * (index + 0.5);
+      });
+    };
+    positionColumn(
+      nodes.filter((item) => item.type === "english"),
+      leftX,
+    );
+    positionColumn(
+      nodes.filter((item) => item.type === "chinese"),
+      rightX,
+    );
+
     const svg = d3
       .select(host)
       .append("svg")
       .attr("viewBox", `0 0 ${width} ${height}`)
       .attr("role", "img")
-      .attr("aria-label", "Network of English name elements and Chinese characters");
+      .attr(
+        "aria-label",
+        "Connections from English name elements on the left to Chinese characters on the right",
+      );
+    svg
+      .append("text")
+      .attr("class", "network-column-heading")
+      .attr("x", leftX)
+      .attr("y", 24)
+      .attr("text-anchor", "middle")
+      .text(t("englishElement"));
+    svg
+      .append("text")
+      .attr("class", "network-column-heading")
+      .attr("x", rightX)
+      .attr("y", 24)
+      .attr("text-anchor", "middle")
+      .text(t("chineseCharacter"));
     const graph = svg.append("g");
     const zoom = d3
       .zoom()
@@ -314,34 +356,43 @@
         d3
           .forceLink(links)
           .id((node) => node.id)
-          .distance((link) => 72 + 45 / Math.sqrt(link.value))
-          .strength(0.45),
+          .distance(width * 0.38)
+          .strength(0.08),
       )
-      .force("charge", d3.forceManyBody().strength(-145))
+      .force("charge", d3.forceManyBody().strength(-70))
       .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("column", d3.forceX(columnX).strength(0.12))
       .force("collision", d3.forceCollide().radius((node) => nodeRadius(node) + 8))
       .on("tick", () => {
         nodes.forEach((item) => {
-          const horizontalMargin = item.type === "english" ? 62 : 18;
-          item.x = Math.max(horizontalMargin, Math.min(width - horizontalMargin, item.x));
-          item.y = Math.max(26, Math.min(height - 18, item.y));
+          item.x = columnX(item);
+          item.y = Math.max(columnTop - 10, Math.min(height - 14, item.y));
         });
         link
-          .attr("x1", (item) => item.source.x)
-          .attr("y1", (item) => item.source.y)
-          .attr("x2", (item) => item.target.x)
-          .attr("y2", (item) => item.target.y);
+          .attr("d", (item) => {
+            const middleX = (item.source.x + item.target.x) / 2;
+            return `M${item.source.x},${item.source.y} C${middleX},${item.source.y} ${middleX},${item.target.y} ${item.target.x},${item.target.y}`;
+          });
         node.attr("transform", (item) => `translate(${item.x},${item.y})`);
       });
     activeSimulations.push(simulation);
 
     const link = graph
       .append("g")
-      .selectAll("line")
+      .attr("class", "network-links")
+      .selectAll("path")
       .data(links)
-      .join("line")
+      .join("path")
       .attr("class", "network-link")
-      .attr("stroke-width", (item) => 0.7 + Math.min(3, Math.sqrt(item.value)));
+      .style("stroke-width", (item) => 0.8 + Math.min(3.4, Math.sqrt(item.value)))
+      .style("stroke-opacity", (item) => 0.2 + Math.min(0.48, item.value * 0.035));
+
+    link.append("title").text(
+      (item) =>
+        `${item.source.label} → ${item.target.label}: ${t("sharedNames", {
+          count: item.value,
+        })}`,
+    );
 
     const node = graph
       .append("g")
@@ -353,6 +404,25 @@
       .attr("tabindex", 0)
       .attr("aria-label", (item) => `${item.label}: ${item.count}. ${t("enter")}`)
       .on("click", (_, item) => setState({ q: item.label }))
+      .on("mouseenter", (_, item) => {
+        const connected = new Set([item.id]);
+        links.forEach((linkItem) => {
+          const source = typeof linkItem.source === "object" ? linkItem.source.id : linkItem.source;
+          const target = typeof linkItem.target === "object" ? linkItem.target.id : linkItem.target;
+          if (source === item.id) connected.add(target);
+          if (target === item.id) connected.add(source);
+        });
+        node.classed("is-muted", (nodeItem) => !connected.has(nodeItem.id));
+        link.classed(
+          "is-muted",
+          (linkItem) =>
+            linkItem.source.id !== item.id && linkItem.target.id !== item.id,
+        );
+      })
+      .on("mouseleave", () => {
+        node.classed("is-muted", false);
+        link.classed("is-muted", false);
+      })
       .on("keydown", (event, item) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
@@ -364,16 +434,15 @@
           .drag()
           .on("start", (event, item) => {
             if (!event.active) simulation.alphaTarget(0.22).restart();
-            item.fx = item.x;
+            item.fx = columnX(item);
             item.fy = item.y;
           })
           .on("drag", (event, item) => {
-            item.fx = event.x;
             item.fy = event.y;
           })
           .on("end", (event, item) => {
             if (!event.active) simulation.alphaTarget(0);
-            item.fx = null;
+            item.fx = columnX(item);
             item.fy = null;
           }),
       );
@@ -401,16 +470,14 @@
       .filter((item) => item.type === "english")
       .append("text")
       .attr("class", "network-label")
-      .attr("text-anchor", (item) => (item.x > width * 0.7 ? "end" : "start"))
-      .attr("x", (item) =>
-        item.x > width * 0.7 ? -(nodeRadius(item) + 4) : nodeRadius(item) + 4,
-      )
+      .attr("text-anchor", "start")
+      .attr("x", (item) => nodeRadius(item) + 5)
       .attr("y", 3)
-      .text((item) => item.label);
+      .text((item) => `${item.label} · ${item.count}`);
 
     node
       .append("title")
-      .text((item) => `${item.label}: ${item.count}`);
+      .text((item) => `${item.label}: ${t("nodeFrequency", { count: item.count })}`);
 
     elements.networkSummary.textContent = t("networkSummary", {
       terms: nodes.filter((item) => item.type === "english").length,
