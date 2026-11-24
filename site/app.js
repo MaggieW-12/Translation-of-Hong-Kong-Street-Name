@@ -14,6 +14,8 @@
     hybrid_phonetic_semantic: "#bd8a34",
     conventional_or_indirect: "#6f7d87",
   };
+  const treemapRoadOrder = ["ROAD", "STREET", "LANE", "OTHER"];
+  const treemapCoreRoadTypes = new Set(["ROAD", "STREET", "LANE"]);
   const activeSimulations = [];
 
   const elements = {
@@ -429,100 +431,234 @@
       return;
     }
 
-    const grouped = new Map();
-    rows.forEach((row) => {
-      if (!grouped.has(row.category)) grouped.set(row.category, new Map());
-      const leaves = grouped.get(row.category);
-      leaves.set(row.roadType, (leaves.get(row.roadType) || 0) + 1);
-    });
-    const rootData = {
-      name: t("chartRoot"),
-      children: [...grouped.entries()].map(([category, leaves]) => ({
-        name: category,
-        children: [...leaves.entries()].map(([roadType, value]) => ({
-          name: roadType,
-          roadType,
+    const grouped = categories
+      .map((category) => {
+        const subset = rows.filter((row) => row.category === category);
+        if (!subset.length) return null;
+
+        const roadCounts = new Map();
+        subset.forEach((row) => {
+          roadCounts.set(row.roadType, (roadCounts.get(row.roadType) || 0) + 1);
+        });
+
+        const leaves = new Map();
+        const otherTypes = new Map();
+        roadCounts.forEach((count, roadType) => {
+          if (treemapCoreRoadTypes.has(roadType) && count >= 3) {
+            leaves.set(roadType, count);
+          } else {
+            leaves.set("OTHER", (leaves.get("OTHER") || 0) + count);
+            otherTypes.set(roadType, count);
+          }
+        });
+
+        return {
           category,
-          value,
-        })),
-      })),
-    };
-    const root = d3
-      .hierarchy(rootData)
-      .sum((item) => item.value || 0)
-      .sort((a, b) => b.value - a.value);
+          total: subset.length,
+          leaves: treemapRoadOrder
+            .filter((roadType) => leaves.has(roadType))
+            .map((roadType) => ({
+              category,
+              roadType,
+              value: leaves.get(roadType),
+              otherTypes: [...otherTypes.entries()],
+            })),
+        };
+      })
+      .filter(Boolean);
+
     const width = Math.max(host.clientWidth, 280);
-    const height = width < 500 ? 300 : 340;
-    d3.treemap().size([width, height]).paddingInner(2).paddingOuter(1).round(true)(root);
+    const compact = width < 520;
+    const columns = compact ? 2 : grouped.length;
+    const gridRows = Math.ceil(grouped.length / columns);
+    const height = compact ? 460 : 340;
+    const margin = { top: 14, right: 8, bottom: 4, left: 8 };
+    const summaryHeight = 7;
+    const gridTop = margin.top + summaryHeight + 10;
+    const columnGap = 6;
+    const rowGap = 10;
+    const gridWidth = width - margin.left - margin.right;
+    const columnWidth =
+      (gridWidth - columnGap * Math.max(0, columns - 1)) / columns;
+    const gridHeight = height - gridTop - margin.bottom;
+    const panelHeight =
+      (gridHeight - rowGap * Math.max(0, gridRows - 1)) / gridRows;
 
     const svg = d3
       .select(host)
       .append("svg")
       .attr("viewBox", `0 0 ${width} ${height}`)
       .attr("role", "img")
-      .attr("aria-label", "Treemap of translation categories and road types");
-    const groups = svg
+      .attr(
+        "aria-label",
+        "Road-type composition for each translation strategy; the top bar shows each strategy's overall share",
+      );
+
+    let summaryX = margin.left;
+    const summary = svg
+      .append("g")
+      .attr("class", "treemap-summary")
+      .selectAll("rect")
+      .data(grouped)
+      .join("rect")
+      .attr("x", (item) => {
+        const x = summaryX;
+        summaryX += (item.total / rows.length) * gridWidth;
+        return x;
+      })
+      .attr("y", margin.top)
+      .attr("width", (item) => (item.total / rows.length) * gridWidth)
+      .attr("height", summaryHeight)
+      .attr("fill", (item) => categoryColors[item.category])
+      .attr("class", "treemap-overall-segment");
+
+    summary.append("title").text((item) => {
+      const percent = Math.round((item.total / rows.length) * 100);
+      return `${categoryLabel(item.category)}: ${item.total} (${percent}%)`;
+    });
+
+    const panels = svg
+      .append("g")
+      .attr("class", "treemap-groups")
       .selectAll("g")
-      .data(root.children)
-      .join("g");
+      .data(grouped)
+      .join("g")
+      .attr(
+        "transform",
+        (_, index) =>
+          `translate(${margin.left + (index % columns) * (columnWidth + columnGap)}, ${
+            gridTop + Math.floor(index / columns) * (panelHeight + rowGap)
+          })`,
+      );
 
-    groups
+    panels
       .append("rect")
-      .attr("x", (item) => item.x0)
-      .attr("y", (item) => item.y0)
-      .attr("width", (item) => item.x1 - item.x0)
-      .attr("height", (item) => item.y1 - item.y0)
-      .attr("fill", (item) => categoryColors[item.data.name])
-      .attr("fill-opacity", 0.18)
-      .attr("class", "treemap-category");
+      .attr("class", "treemap-strategy-bg")
+      .attr("width", columnWidth)
+      .attr("height", panelHeight)
+      .attr("rx", 8)
+      .attr("fill", (item) => categoryColors[item.category])
+      .attr("fill-opacity", 0.08);
 
-    groups
+    panels
+      .append("rect")
+      .attr("class", "treemap-strategy-heading")
+      .attr("width", columnWidth)
+      .attr("height", 42)
+      .attr("rx", 8)
+      .attr("fill", (item) => categoryColors[item.category])
+      .attr("fill-opacity", 0.15);
+
+    panels
       .append("text")
-      .attr("class", "treemap-parent-label")
-      .attr("x", (item) => item.x0 + 4)
-      .attr("y", (item) => item.y0 + 12)
-      .text((item) => categoryLabel(item.data.name));
+      .attr("class", "treemap-strategy-label")
+      .attr("x", 8)
+      .attr("y", 17)
+      .text((item) => categoryLabel(item.category));
 
-    const leaves = groups
-      .selectAll("g")
-      .data((item) => item.leaves())
-      .join("g");
+    panels
+      .append("text")
+      .attr("class", "treemap-strategy-total")
+      .attr("x", 8)
+      .attr("y", 33)
+      .text((item) => {
+        const percent = Math.round((item.total / rows.length) * 100);
+        return `${item.total} · ${percent}%`;
+      });
 
-    leaves
-      .append("rect")
-      .attr("class", "treemap-leaf")
-      .attr("x", (item) => item.x0)
-      .attr("y", (item) => item.y0)
-      .attr("width", (item) => Math.max(0, item.x1 - item.x0))
-      .attr("height", (item) => Math.max(0, item.y1 - item.y0))
-      .attr("fill", (item) => categoryColors[item.data.category])
-      .attr("fill-opacity", 0.83)
-      .attr("role", "button")
-      .attr("tabindex", 0)
-      .attr("aria-label", (item) =>
-        `${categoryLabel(item.data.category)}, ${item.data.roadType}: ${item.value}`,
-      )
-      .on("click", (_, item) =>
-        setState({ category: item.data.category, roadType: item.data.roadType }),
-      )
-      .on("keydown", (event, item) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          setState({ category: item.data.category, roadType: item.data.roadType });
-        }
+    const leaves = panels
+      .each(function (panel) {
+        let offset = 0;
+        d3.select(this)
+          .append("g")
+          .attr("class", "treemap-leaves")
+          .selectAll("rect")
+          .data(panel.leaves)
+          .join("rect")
+          .attr("class", "treemap-leaf")
+          .attr("x", 2)
+          .attr("y", (item) => {
+            const y = 44 + (offset / panel.total) * (panelHeight - 46);
+            offset += item.value;
+            return y;
+          })
+          .attr("width", Math.max(1, columnWidth - 4))
+          .attr("height", (item) =>
+            Math.max(1, (item.value / panel.total) * (panelHeight - 46) - 1),
+          )
+          .attr("fill", (item, index) => {
+            const base = d3.color(categoryColors[item.category]);
+            return base.copy({
+              opacity: [1, 0.82, 0.67, 0.54][index % 4],
+            }).formatRgb();
+          })
+          .attr("role", "button")
+          .attr("tabindex", 0)
+          .attr("aria-label", (item) => {
+            const percent = Math.round((item.value / panel.total) * 100);
+            const typeLabel =
+              item.roadType === "OTHER" ? t("otherRoadTypes") : item.roadType;
+            const details =
+              item.roadType === "OTHER" && item.otherTypes.length
+                ? `: ${item.otherTypes
+                    .map(([roadType, count]) => `${roadType} ${count}`)
+                    .join(", ")}`
+                : "";
+            return `${categoryLabel(item.category)}, ${typeLabel}: ${item.value} (${percent}%)${details}`;
+          })
+          .on("click", (_, item) =>
+            setState({
+              category: item.category,
+              roadType:
+                item.roadType === "OTHER" ? "all" : item.roadType,
+            }),
+          )
+          .on("keydown", (event, item) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              setState({
+                category: item.category,
+                roadType:
+                  item.roadType === "OTHER" ? "all" : item.roadType,
+              });
+            }
+          });
+
+        d3.select(this)
+          .select(".treemap-leaves")
+          .selectAll("text")
+          .data(panel.leaves)
+          .join("text")
+          .attr("class", "treemap-label")
+          .attr("x", 8)
+          .attr("y", (item) => {
+            const prior = panel.leaves
+              .slice(0, panel.leaves.indexOf(item))
+              .reduce((sum, leaf) => sum + leaf.value, 0);
+            return 44 + ((prior + item.value / 2) / panel.total) * (panelHeight - 46) + 3;
+          })
+          .attr("fill", (item, index) => (index === 0 ? "#fff" : "#17251f"))
+          .text((item) => {
+            const label = item.roadType === "OTHER" ? "OTHER" : item.roadType;
+            return `${label} ${item.value}`;
+          });
       });
 
     leaves
-      .filter((item) => item.x1 - item.x0 > 42 && item.y1 - item.y0 > 18)
-      .append("text")
-      .attr("class", "treemap-label")
-      .attr("x", (item) => item.x0 + 4)
-      .attr("y", (item) => item.y0 + 13)
-      .text((item) => `${item.data.roadType} ${item.value}`);
-
-    leaves.append("title").text((item) =>
-      `${categoryLabel(item.data.category)} / ${item.data.roadType}: ${item.value}`,
-    );
+      .selectAll(".treemap-leaves")
+      .selectAll(".treemap-leaf")
+      .append("title")
+      .text((item) => {
+        const percent = Math.round((item.value / grouped.find((panel) => panel.category === item.category).total) * 100);
+        const base = `${categoryLabel(item.category)} / ${
+          item.roadType === "OTHER" ? t("otherRoadTypes") : item.roadType
+        }: ${item.value} (${percent}%)`;
+        if (item.roadType !== "OTHER" || !item.otherTypes.length) return base;
+        const details = item.otherTypes
+          .map(([roadType, count]) => `${roadType} ${count}`)
+          .join(", ");
+        return `${base}\n${details}`;
+      });
   }
 
   function renderHeatmap(rows) {

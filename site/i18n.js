@@ -26,6 +26,7 @@
       linkOne: "link",
       linkMany: "links",
       chartRoot: "street names",
+      otherRoadTypes: "Other road types",
       enter: "Open this term in the search",
     },
     zh: {
@@ -51,6 +52,7 @@
       linkOne: "個連繫",
       linkMany: "個連繫",
       chartRoot: "街道名稱",
+      otherRoadTypes: "其他道路類型",
       enter: "在搜尋器打開此詞",
     },
   };
